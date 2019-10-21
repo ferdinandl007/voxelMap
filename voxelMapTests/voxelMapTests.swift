@@ -6,9 +6,9 @@
 //  Copyright © 2019 Ferdinand Lösch. All rights reserved.
 //
 
+import simd
 @testable import voxelMap
 import XCTest
-import simd
 
 class voxelMapTests: XCTestCase {
     var map: VoxelMap!
@@ -36,7 +36,7 @@ class voxelMapTests: XCTestCase {
     }
 
     func testNoDuplicatesVoxels() {
-       map.addVoxel(vector: vector_float3(x: 5, y: 5, z: 5))
+        map.addVoxel(vector: vector_float3(x: 5, y: 5, z: 5))
         XCTAssertEqual(map.getVoxelNodes().count, voxelCount)
     }
 

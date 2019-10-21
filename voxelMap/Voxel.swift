@@ -10,13 +10,11 @@ import Foundation
 import simd
 
 class Voxel: Hashable {
-
     var vector: vector_float3
     var density: Double
     var level: Double
 
     init(vector: vector_float3, density: Double, level: Double) {
-
         self.vector = vector
         self.density = density
         self.level = level

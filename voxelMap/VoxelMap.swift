@@ -23,21 +23,51 @@ class VoxelMap {
         voxelSet.insert(voxel)
     }
 
-    func getVoxelNodes() -> [SCNNode] {
-        var nodes = [SCNNode]()
-        for voxel in voxelSet {
-            let box = SCNBox(width: CGFloat(voxel.level * 0.1),
-                             height: CGFloat(voxel.level * 0.1),
-                             length: CGFloat(voxel.level * 0.1),
-                             chamferRadius: 0)
-            box.firstMaterial?.diffuse.contents = UIColor.green
-            let node = SCNNode(geometry: box)
-            node.position = SCNVector3(voxel.vector)
-            nodes.append(node)
-        }
-        return nodes
+    func getVoxelNodes() -> SCNNode {
+        let points = voxelSet.map { SIMD3<Float>($0.vector) }
+
+        let featurePointsGeometry = pointCloudGeometry(for: points)
+
+        let featurePointsNode = SCNNode(geometry: featurePointsGeometry)
+
+        return featurePointsNode
     }
+
+    
 }
 
 
+extension VoxelMap {
+    
+    // Generate a geometry point cloud out current of Voxels.
+    func pointCloudGeometry(for points: [SIMD3<Float>]) -> SCNGeometry? {
+        guard !points.isEmpty else { return nil }
 
+        let stride = MemoryLayout<SIMD3<Float>>.size
+        let pointData = Data(bytes: points, count: stride * points.count)
+
+        let source = SCNGeometrySource(data: pointData,
+                                       semantic: SCNGeometrySource.Semantic.vertex,
+                                       vectorCount: points.count,
+                                       usesFloatComponents: true,
+                                       componentsPerVector: 3,
+                                       bytesPerComponent: MemoryLayout<Float>.size,
+                                       dataOffset: 0,
+                                       dataStride: stride)
+
+        let pointSize: CGFloat = 10
+        let element = SCNGeometryElement(data: nil, primitiveType: .point, primitiveCount: points.count, bytesPerIndex: 0)
+        element.pointSize = 0.001
+        element.minimumPointScreenSpaceRadius = pointSize
+        element.maximumPointScreenSpaceRadius = pointSize
+
+        let pointsGeometry = SCNGeometry(sources: [source], elements: [element])
+
+        let material = SCNMaterial()
+        material.diffuse.contents = UIColor.red
+        material.isDoubleSided = true
+        material.locksAmbientWithDiffuse = true
+
+        return pointsGeometry
+    }
+}
