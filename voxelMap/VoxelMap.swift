@@ -23,7 +23,7 @@ class VoxelMap {
         voxelSet.insert(voxel)
     }
 
-    func getVoxelNodes() -> SCNNode {
+    func getVoxelNode() -> SCNNode {
         let points = voxelSet.map { SIMD3<Float>($0.vector) }
 
         let featurePointsGeometry = pointCloudGeometry(for: points)
@@ -32,13 +32,9 @@ class VoxelMap {
 
         return featurePointsNode
     }
-
-    
 }
 
-
 extension VoxelMap {
-    
     // Generate a geometry point cloud out current of Voxels.
     func pointCloudGeometry(for points: [SIMD3<Float>]) -> SCNGeometry? {
         guard !points.isEmpty else { return nil }

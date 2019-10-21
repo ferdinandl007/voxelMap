@@ -53,11 +53,10 @@ class ViewController: UIViewController {
 
     @IBAction func makeVoxels(_: Any) {
         augmentedRealityView.scene.rootNode.enumerateChildNodes { featurePoint, _ in
-
             featurePoint.geometry = nil
             featurePoint.removeFromParentNode()
         }
 
-        augmentedRealityView.scene.rootNode.addChildNode(voxelMap.getVoxelNodes())
+        augmentedRealityView.scene.rootNode.addChildNode(voxelMap.getVoxelNode())
     }
 }
