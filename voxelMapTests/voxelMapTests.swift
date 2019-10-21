@@ -6,29 +6,44 @@
 //  Copyright © 2019 Ferdinand Lösch. All rights reserved.
 //
 
-import XCTest
 @testable import voxelMap
+import XCTest
+import simd
 
 class voxelMapTests: XCTestCase {
-
+    var map: VoxelMap!
+    var voxelCount = 0
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+        // Make a voxel map back.
+        super.setUp()
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        map = VoxelMap()
+        for i in 0 ... 10 {
+            map.addVoxel(vector: vector_float3(x: Float(i), y: Float(i), z: Float(i)))
+            voxelCount += 1
         }
     }
 
+    override func tearDown() {
+        map = nil
+        super.tearDown()
+    }
+
+    func testCorrectNumberOfVoxelNodes() {
+        map.addVoxel(vector: vector_float3(x: 100, y: 100, z: 100))
+        voxelCount += 1
+        XCTAssertEqual(map.getVoxelNodes().count, voxelCount)
+    }
+
+    func testNoDuplicatesVoxels() {
+       map.addVoxel(vector: vector_float3(x: 5, y: 5, z: 5))
+        XCTAssertEqual(map.getVoxelNodes().count, voxelCount)
+    }
+
+    func testNode() {
+        let nodes = map.getVoxelNodes()
+        for i in 0 ..< nodes.count {
+            XCTAssertNotNil(nodes[i], "nil at \(i)")
+        }
+    }
 }

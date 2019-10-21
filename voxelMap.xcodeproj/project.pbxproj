@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF03E758235DEBC1001FFD4B /* VoxelMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03E757235DEBC1001FFD4B /* VoxelMap.swift */; };
+		CF03E75A235DF938001FFD4B /* VoxelHashMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03E759235DF938001FFD4B /* VoxelHashMap.swift */; };
+		CF6B4313235E032A00F85C77 /* Voxel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B4312235E032900F85C77 /* Voxel.swift */; };
+		CF6B4315235E224500F85C77 /* testVoxelMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B4314235E224500F85C77 /* testVoxelMap.swift */; };
 		CFD63BA9235DC5A1006DF3EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD63BA8235DC5A1006DF3EA /* AppDelegate.swift */; };
 		CFD63BAB235DC5A1006DF3EA /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = CFD63BAA235DC5A1006DF3EA /* art.scnassets */; };
 		CFD63BAD235DC5A1006DF3EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD63BAC235DC5A1006DF3EA /* ViewController.swift */; };
@@ -35,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF03E757235DEBC1001FFD4B /* VoxelMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoxelMap.swift; sourceTree = "<group>"; };
+		CF03E759235DF938001FFD4B /* VoxelHashMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoxelHashMap.swift; sourceTree = "<group>"; };
+		CF6B4312235E032900F85C77 /* Voxel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voxel.swift; sourceTree = "<group>"; };
+		CF6B4314235E224500F85C77 /* testVoxelMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testVoxelMap.swift; sourceTree = "<group>"; };
 		CFD63BA5235DC5A1006DF3EA /* voxelMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = voxelMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFD63BA8235DC5A1006DF3EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFD63BAA235DC5A1006DF3EA /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -102,6 +110,9 @@
 				CFD63BA8235DC5A1006DF3EA /* AppDelegate.swift */,
 				CFD63BAA235DC5A1006DF3EA /* art.scnassets */,
 				CFD63BAC235DC5A1006DF3EA /* ViewController.swift */,
+				CF03E757235DEBC1001FFD4B /* VoxelMap.swift */,
+				CF6B4312235E032900F85C77 /* Voxel.swift */,
+				CF03E759235DF938001FFD4B /* VoxelHashMap.swift */,
 				CFD63BAE235DC5A1006DF3EA /* Main.storyboard */,
 				CFD63BB1235DC5A3006DF3EA /* Assets.xcassets */,
 				CFD63BB3235DC5A3006DF3EA /* LaunchScreen.storyboard */,
@@ -113,6 +124,7 @@
 		CFD63BBE235DC5A3006DF3EA /* voxelMapTests */ = {
 			isa = PBXGroup;
 			children = (
+				CF6B4314235E224500F85C77 /* testVoxelMap.swift */,
 				CFD63BBF235DC5A3006DF3EA /* voxelMapTests.swift */,
 				CFD63BC1235DC5A3006DF3EA /* Info.plist */,
 			);
@@ -261,7 +273,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFD63BAD235DC5A1006DF3EA /* ViewController.swift in Sources */,
+				CF03E75A235DF938001FFD4B /* VoxelHashMap.swift in Sources */,
 				CFD63BA9235DC5A1006DF3EA /* AppDelegate.swift in Sources */,
+				CF03E758235DEBC1001FFD4B /* VoxelMap.swift in Sources */,
+				CF6B4313235E032A00F85C77 /* Voxel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFD63BC0235DC5A3006DF3EA /* voxelMapTests.swift in Sources */,
+				CF6B4315235E224500F85C77 /* testVoxelMap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,8 +451,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8M8S4HQM6M;
+				DEVELOPMENT_TEAM = LJH7752BKA;
 				INFOPLIST_FILE = voxelMap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -453,8 +470,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8M8S4HQM6M;
+				DEVELOPMENT_TEAM = LJH7752BKA;
 				INFOPLIST_FILE = voxelMap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -472,7 +490,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8M8S4HQM6M;
+				DEVELOPMENT_TEAM = LJH7752BKA;
 				INFOPLIST_FILE = voxelMapTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -494,7 +512,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8M8S4HQM6M;
+				DEVELOPMENT_TEAM = LJH7752BKA;
 				INFOPLIST_FILE = voxelMapTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -515,7 +533,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8M8S4HQM6M;
+				DEVELOPMENT_TEAM = LJH7752BKA;
 				INFOPLIST_FILE = voxelMapUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -535,7 +553,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8M8S4HQM6M;
+				DEVELOPMENT_TEAM = LJH7752BKA;
 				INFOPLIST_FILE = voxelMapUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
