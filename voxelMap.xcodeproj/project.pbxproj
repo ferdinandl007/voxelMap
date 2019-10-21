@@ -1,0 +1,595 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CFD63BA9235DC5A1006DF3EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD63BA8235DC5A1006DF3EA /* AppDelegate.swift */; };
+		CFD63BAB235DC5A1006DF3EA /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = CFD63BAA235DC5A1006DF3EA /* art.scnassets */; };
+		CFD63BAD235DC5A1006DF3EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD63BAC235DC5A1006DF3EA /* ViewController.swift */; };
+		CFD63BB0235DC5A1006DF3EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFD63BAE235DC5A1006DF3EA /* Main.storyboard */; };
+		CFD63BB2235DC5A3006DF3EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFD63BB1235DC5A3006DF3EA /* Assets.xcassets */; };
+		CFD63BB5235DC5A3006DF3EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFD63BB3235DC5A3006DF3EA /* LaunchScreen.storyboard */; };
+		CFD63BC0235DC5A3006DF3EA /* voxelMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD63BBF235DC5A3006DF3EA /* voxelMapTests.swift */; };
+		CFD63BCB235DC5A3006DF3EA /* voxelMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD63BCA235DC5A3006DF3EA /* voxelMapUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CFD63BBC235DC5A3006DF3EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CFD63B9D235DC5A1006DF3EA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CFD63BA4235DC5A1006DF3EA;
+			remoteInfo = voxelMap;
+		};
+		CFD63BC7235DC5A3006DF3EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CFD63B9D235DC5A1006DF3EA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CFD63BA4235DC5A1006DF3EA;
+			remoteInfo = voxelMap;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CFD63BA5235DC5A1006DF3EA /* voxelMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = voxelMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFD63BA8235DC5A1006DF3EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CFD63BAA235DC5A1006DF3EA /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		CFD63BAC235DC5A1006DF3EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CFD63BAF235DC5A1006DF3EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CFD63BB1235DC5A3006DF3EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CFD63BB4235DC5A3006DF3EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CFD63BB6235DC5A3006DF3EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFD63BBB235DC5A3006DF3EA /* voxelMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = voxelMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFD63BBF235DC5A3006DF3EA /* voxelMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = voxelMapTests.swift; sourceTree = "<group>"; };
+		CFD63BC1235DC5A3006DF3EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFD63BC6235DC5A3006DF3EA /* voxelMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = voxelMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFD63BCA235DC5A3006DF3EA /* voxelMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = voxelMapUITests.swift; sourceTree = "<group>"; };
+		CFD63BCC235DC5A3006DF3EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CFD63BA2235DC5A1006DF3EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFD63BB8235DC5A3006DF3EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFD63BC3235DC5A3006DF3EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CFD63B9C235DC5A1006DF3EA = {
+			isa = PBXGroup;
+			children = (
+				CFD63BA7235DC5A1006DF3EA /* voxelMap */,
+				CFD63BBE235DC5A3006DF3EA /* voxelMapTests */,
+				CFD63BC9235DC5A3006DF3EA /* voxelMapUITests */,
+				CFD63BA6235DC5A1006DF3EA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CFD63BA6235DC5A1006DF3EA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CFD63BA5235DC5A1006DF3EA /* voxelMap.app */,
+				CFD63BBB235DC5A3006DF3EA /* voxelMapTests.xctest */,
+				CFD63BC6235DC5A3006DF3EA /* voxelMapUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CFD63BA7235DC5A1006DF3EA /* voxelMap */ = {
+			isa = PBXGroup;
+			children = (
+				CFD63BA8235DC5A1006DF3EA /* AppDelegate.swift */,
+				CFD63BAA235DC5A1006DF3EA /* art.scnassets */,
+				CFD63BAC235DC5A1006DF3EA /* ViewController.swift */,
+				CFD63BAE235DC5A1006DF3EA /* Main.storyboard */,
+				CFD63BB1235DC5A3006DF3EA /* Assets.xcassets */,
+				CFD63BB3235DC5A3006DF3EA /* LaunchScreen.storyboard */,
+				CFD63BB6235DC5A3006DF3EA /* Info.plist */,
+			);
+			path = voxelMap;
+			sourceTree = "<group>";
+		};
+		CFD63BBE235DC5A3006DF3EA /* voxelMapTests */ = {
+			isa = PBXGroup;
+			children = (
+				CFD63BBF235DC5A3006DF3EA /* voxelMapTests.swift */,
+				CFD63BC1235DC5A3006DF3EA /* Info.plist */,
+			);
+			path = voxelMapTests;
+			sourceTree = "<group>";
+		};
+		CFD63BC9235DC5A3006DF3EA /* voxelMapUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CFD63BCA235DC5A3006DF3EA /* voxelMapUITests.swift */,
+				CFD63BCC235DC5A3006DF3EA /* Info.plist */,
+			);
+			path = voxelMapUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CFD63BA4235DC5A1006DF3EA /* voxelMap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFD63BCF235DC5A3006DF3EA /* Build configuration list for PBXNativeTarget "voxelMap" */;
+			buildPhases = (
+				CFD63BA1235DC5A1006DF3EA /* Sources */,
+				CFD63BA2235DC5A1006DF3EA /* Frameworks */,
+				CFD63BA3235DC5A1006DF3EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = voxelMap;
+			productName = voxelMap;
+			productReference = CFD63BA5235DC5A1006DF3EA /* voxelMap.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CFD63BBA235DC5A3006DF3EA /* voxelMapTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFD63BD2235DC5A3006DF3EA /* Build configuration list for PBXNativeTarget "voxelMapTests" */;
+			buildPhases = (
+				CFD63BB7235DC5A3006DF3EA /* Sources */,
+				CFD63BB8235DC5A3006DF3EA /* Frameworks */,
+				CFD63BB9235DC5A3006DF3EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CFD63BBD235DC5A3006DF3EA /* PBXTargetDependency */,
+			);
+			name = voxelMapTests;
+			productName = voxelMapTests;
+			productReference = CFD63BBB235DC5A3006DF3EA /* voxelMapTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CFD63BC5235DC5A3006DF3EA /* voxelMapUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFD63BD5235DC5A3006DF3EA /* Build configuration list for PBXNativeTarget "voxelMapUITests" */;
+			buildPhases = (
+				CFD63BC2235DC5A3006DF3EA /* Sources */,
+				CFD63BC3235DC5A3006DF3EA /* Frameworks */,
+				CFD63BC4235DC5A3006DF3EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CFD63BC8235DC5A3006DF3EA /* PBXTargetDependency */,
+			);
+			name = voxelMapUITests;
+			productName = voxelMapUITests;
+			productReference = CFD63BC6235DC5A3006DF3EA /* voxelMapUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CFD63B9D235DC5A1006DF3EA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+				ORGANIZATIONNAME = "Ferdinand Lösch";
+				TargetAttributes = {
+					CFD63BA4235DC5A1006DF3EA = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					CFD63BBA235DC5A3006DF3EA = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = CFD63BA4235DC5A1006DF3EA;
+					};
+					CFD63BC5235DC5A3006DF3EA = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = CFD63BA4235DC5A1006DF3EA;
+					};
+				};
+			};
+			buildConfigurationList = CFD63BA0235DC5A1006DF3EA /* Build configuration list for PBXProject "voxelMap" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CFD63B9C235DC5A1006DF3EA;
+			productRefGroup = CFD63BA6235DC5A1006DF3EA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CFD63BA4235DC5A1006DF3EA /* voxelMap */,
+				CFD63BBA235DC5A3006DF3EA /* voxelMapTests */,
+				CFD63BC5235DC5A3006DF3EA /* voxelMapUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CFD63BA3235DC5A1006DF3EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFD63BAB235DC5A1006DF3EA /* art.scnassets in Resources */,
+				CFD63BB5235DC5A3006DF3EA /* LaunchScreen.storyboard in Resources */,
+				CFD63BB2235DC5A3006DF3EA /* Assets.xcassets in Resources */,
+				CFD63BB0235DC5A1006DF3EA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFD63BB9235DC5A3006DF3EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFD63BC4235DC5A3006DF3EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CFD63BA1235DC5A1006DF3EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFD63BAD235DC5A1006DF3EA /* ViewController.swift in Sources */,
+				CFD63BA9235DC5A1006DF3EA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFD63BB7235DC5A3006DF3EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFD63BC0235DC5A3006DF3EA /* voxelMapTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFD63BC2235DC5A3006DF3EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFD63BCB235DC5A3006DF3EA /* voxelMapUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CFD63BBD235DC5A3006DF3EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CFD63BA4235DC5A1006DF3EA /* voxelMap */;
+			targetProxy = CFD63BBC235DC5A3006DF3EA /* PBXContainerItemProxy */;
+		};
+		CFD63BC8235DC5A3006DF3EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CFD63BA4235DC5A1006DF3EA /* voxelMap */;
+			targetProxy = CFD63BC7235DC5A3006DF3EA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CFD63BAE235DC5A1006DF3EA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFD63BAF235DC5A1006DF3EA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CFD63BB3235DC5A3006DF3EA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFD63BB4235DC5A3006DF3EA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CFD63BCD235DC5A3006DF3EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CFD63BCE235DC5A3006DF3EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CFD63BD0235DC5A3006DF3EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8M8S4HQM6M;
+				INFOPLIST_FILE = voxelMap/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ferdinand.voxelMap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CFD63BD1235DC5A3006DF3EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8M8S4HQM6M;
+				INFOPLIST_FILE = voxelMap/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ferdinand.voxelMap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CFD63BD3235DC5A3006DF3EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8M8S4HQM6M;
+				INFOPLIST_FILE = voxelMapTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ferdinand.voxelMapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/voxelMap.app/voxelMap";
+			};
+			name = Debug;
+		};
+		CFD63BD4235DC5A3006DF3EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8M8S4HQM6M;
+				INFOPLIST_FILE = voxelMapTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ferdinand.voxelMapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/voxelMap.app/voxelMap";
+			};
+			name = Release;
+		};
+		CFD63BD6235DC5A3006DF3EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8M8S4HQM6M;
+				INFOPLIST_FILE = voxelMapUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ferdinand.voxelMapUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = voxelMap;
+			};
+			name = Debug;
+		};
+		CFD63BD7235DC5A3006DF3EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8M8S4HQM6M;
+				INFOPLIST_FILE = voxelMapUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ferdinand.voxelMapUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = voxelMap;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CFD63BA0235DC5A1006DF3EA /* Build configuration list for PBXProject "voxelMap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFD63BCD235DC5A3006DF3EA /* Debug */,
+				CFD63BCE235DC5A3006DF3EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFD63BCF235DC5A3006DF3EA /* Build configuration list for PBXNativeTarget "voxelMap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFD63BD0235DC5A3006DF3EA /* Debug */,
+				CFD63BD1235DC5A3006DF3EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFD63BD2235DC5A3006DF3EA /* Build configuration list for PBXNativeTarget "voxelMapTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFD63BD3235DC5A3006DF3EA /* Debug */,
+				CFD63BD4235DC5A3006DF3EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFD63BD5235DC5A3006DF3EA /* Build configuration list for PBXNativeTarget "voxelMapUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFD63BD6235DC5A3006DF3EA /* Debug */,
+				CFD63BD7235DC5A3006DF3EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CFD63B9D235DC5A1006DF3EA /* Project object */;
+}
