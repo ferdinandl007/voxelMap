@@ -56,7 +56,15 @@ class ViewController: UIViewController {
             featurePoint.geometry = nil
             featurePoint.removeFromParentNode()
         }
+        voxelMap.getVoxelMap().forEach {augmentedRealityView.scene.rootNode.addChildNode($0)}
+//        augmentedRealityView.scene.rootNode.addChildNode(voxelMap.getPointCloudNode())
+    }
 
-        augmentedRealityView.scene.rootNode.addChildNode(voxelMap.getVoxelNode())
+    @IBAction func goToMap(_: Any) {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        if let viewController = mainStoryboard.instantiateViewController(withIdentifier: "Map") as? MapViewController {
+            viewController.node = voxelMap.getPointCloudNode()
+            present(viewController, animated: true, completion: nil)
+        }
     }
 }

@@ -32,18 +32,16 @@ class voxelMapTests: XCTestCase {
     func testCorrectNumberOfVoxelNodes() {
         map.addVoxel(vector: vector_float3(x: 100, y: 100, z: 100))
         voxelCount += 1
-        XCTAssertEqual(map.getVoxelNodes().count, voxelCount)
+        XCTAssertEqual(map.voxelSet.count, voxelCount)
     }
 
     func testNoDuplicatesVoxels() {
         map.addVoxel(vector: vector_float3(x: 5, y: 5, z: 5))
-        XCTAssertEqual(map.getVoxelNodes().count, voxelCount)
+        XCTAssertEqual(map.voxelSet.count, voxelCount)
     }
 
     func testNode() {
-        let nodes = map.getVoxelNodes()
-        for i in 0 ..< nodes.count {
-            XCTAssertNotNil(nodes[i], "nil at \(i)")
-        }
+        let nodes = map.getPointCloudNode()
+        XCTAssertNotNil(map.getPointCloudNode().geometry)
     }
 }

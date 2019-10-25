@@ -7,24 +7,39 @@
 //
 
 import Foundation
-import SceneKit.SCNNode
+import GameplayKit
+import ModelIO
+import SceneKit
+import SceneKit.ModelIO
 import simd
 
 protocol VoxelMapDelegate: class {
-    func update(with nodes: [SCNNode]) -> Any
+    func update(_ nodes: [SCNNode]) -> Any
 }
 
 class VoxelMap {
     weak var voxelMapDelegate: VoxelMapDelegate?
     var voxelSet = Set<Voxel>()
-
+    var voxelNode = Set<GKOctreeNode>()
+    var octTree = GKOctree(boundingBox: GKBox(boxMin: vector_float3(-20,-20,-20), boxMax: vector_float3(20,20,20)), minimumCellSize: 0.1)
+    
     func addVoxel(vector: vector_float3) {
-        let voxel = Voxel(vector: vector, density: 1, level: 1)
-        voxelSet.insert(voxel)
+        let voxel = Voxel(vector: vector, scale: vector_float3(10,10,10), density: 1)
+        
+        if voxelSet.contains(voxel) {
+            guard let newVoxel = voxelSet.remove(voxel) else { return }
+//            newVoxel.scale = newVoxel.scale / 10
+            newVoxel.density += 1
+            voxelSet.insert(newVoxel)
+        } else {
+             voxelSet.insert(voxel)
+        }
     }
+    
 
-    func getVoxelNode() -> SCNNode {
-        let points = voxelSet.map { SIMD3<Float>($0.vector) }
+
+    func getPointCloudNode() -> SCNNode {
+        let points = voxelSet.map { SIMD3<Float>($0.Position) }
 
         let featurePointsGeometry = pointCloudGeometry(for: points)
 
@@ -32,10 +47,25 @@ class VoxelMap {
 
         return featurePointsNode
     }
+    
+    func getVoxelMap() -> [SCNNode] {
+        return voxelSet.map { (voxel) -> SCNNode in
+            if voxel.density < 50 {
+                return SCNNode()
+            }
+            print(voxel.density)
+            let position = voxel.Position
+            let box = SCNBox(width: CGFloat(1 / voxel.scale.x) , height: CGFloat(1 / voxel.scale.y), length:  CGFloat(1 / voxel.scale.z), chamferRadius: 0)
+            box.firstMaterial?.diffuse.contents = UIColor.darkGray
+            let voxelNode = SCNNode(geometry: box)
+            voxelNode.position = SCNVector3(position)
+            return voxelNode
+        }
+    }
 }
 
 extension VoxelMap {
-    // Generate a geometry point cloud out current of Voxels.
+    // Generate a geometry point cloud out of current Vertices.
     func pointCloudGeometry(for points: [SIMD3<Float>]) -> SCNGeometry? {
         guard !points.isEmpty else { return nil }
 
@@ -53,9 +83,9 @@ extension VoxelMap {
 
         let pointSize: CGFloat = 10
         let element = SCNGeometryElement(data: nil, primitiveType: .point, primitiveCount: points.count, bytesPerIndex: 0)
-        element.pointSize = 0.001
-        element.minimumPointScreenSpaceRadius = pointSize
-        element.maximumPointScreenSpaceRadius = pointSize
+        element.pointSize = 0.01
+        element.minimumPointScreenSpaceRadius = pointSize * 2
+        element.maximumPointScreenSpaceRadius = pointSize / 2
 
         let pointsGeometry = SCNGeometry(sources: [source], elements: [element])
 

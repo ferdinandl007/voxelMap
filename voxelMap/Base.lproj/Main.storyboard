@@ -19,36 +19,79 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </arscnView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1s-KP-INU">
-                                <rect key="frame" x="0.0" y="740" width="414" height="122"/>
+                                <rect key="frame" x="0.0" y="807" width="414" height="89"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="122" id="jvV-xo-y0V"/>
+                                    <constraint firstAttribute="height" constant="89" id="JZn-oZ-Hv3"/>
                                 </constraints>
                                 <state key="normal" title="make Voxels"/>
                                 <connections>
                                     <action selector="makeVoxels:" destination="BV1-FR-VrT" eventType="touchUpInside" id="cgy-xy-w7r"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lth-qd-Dfl">
+                                <rect key="frame" x="369" y="44" width="25" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="goToMap:" destination="BV1-FR-VrT" eventType="touchUpInside" id="7lY-yd-BRr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="o1s-KP-INU" firstAttribute="leading" secondItem="BrB-h1-WRS" secondAttribute="leading" id="Cua-jK-oMa"/>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="GsS-dJ-CKf"/>
-                            <constraint firstItem="o1s-KP-INU" firstAttribute="top" secondItem="fQZ-KI-GVf" secondAttribute="top" constant="696" id="Jgv-cD-Vdw"/>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="fQZ-KI-GVf" secondAttribute="bottom" constant="34" id="VpT-BR-CcM"/>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="XyZ-9z-H8e"/>
-                            <constraint firstItem="o1s-KP-INU" firstAttribute="bottom" secondItem="fQZ-KI-GVf" secondAttribute="bottom" id="Yyd-CI-LSh"/>
-                            <constraint firstItem="o1s-KP-INU" firstAttribute="trailing" secondItem="BrB-h1-WRS" secondAttribute="trailing" id="egK-aX-GAV"/>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="rJc-2c-zQA"/>
+                            <constraint firstAttribute="trailing" secondItem="o1s-KP-INU" secondAttribute="trailing" id="16a-O5-S9c"/>
+                            <constraint firstItem="o1s-KP-INU" firstAttribute="trailing" secondItem="BrB-h1-WRS" secondAttribute="trailing" id="63B-xt-xjF"/>
+                            <constraint firstItem="o1s-KP-INU" firstAttribute="leading" secondItem="BrB-h1-WRS" secondAttribute="leading" id="J7P-BB-Rnm"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="Ssa-CJ-LQx"/>
+                            <constraint firstAttribute="bottom" secondItem="o1s-KP-INU" secondAttribute="bottom" id="Tnu-7P-YKK"/>
+                            <constraint firstItem="o1s-KP-INU" firstAttribute="leading" secondItem="U0K-SW-4ec" secondAttribute="leading" id="atA-31-L90"/>
+                            <constraint firstItem="o1s-KP-INU" firstAttribute="bottom" secondItem="BrB-h1-WRS" secondAttribute="bottom" id="lZC-Y1-V50"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
                     </view>
                     <connections>
                         <outlet property="augmentedRealityView" destination="BrB-h1-WRS" id="NqE-7Y-K4v"/>
+                        <segue destination="9t2-rf-big" kind="show" identifier="map" destinationCreationSelector="map" id="eBT-FX-mM8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="23.4375"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="6BV-9g-Mu4">
+            <objects>
+                <viewController storyboardIdentifier="Map" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9t2-rf-big" customClass="MapViewController" customModule="voxelMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9f1-xG-5L1" customClass="SCNView">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SPH-zb-OHR">
+                                <rect key="frame" x="20" y="0.0" width="52" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="HZV-2o-roD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                <state key="normal" title="&lt; Back">
+                                    <color key="titleColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="BackButton:" destination="9t2-rf-big" eventType="touchUpInside" id="nWh-dC-exZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="YAe-77-QwC" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="SPH-zb-OHR" secondAttribute="trailing" symbolic="YES" id="l0G-lE-7WL"/>
+                            <constraint firstItem="SPH-zb-OHR" firstAttribute="leading" secondItem="YAe-77-QwC" secondAttribute="leading" constant="20" id="l2r-Xv-0gA"/>
+                            <constraint firstItem="SPH-zb-OHR" firstAttribute="top" secondItem="YAe-77-QwC" secondAttribute="top" id="zXi-bk-p7a"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YAe-77-QwC"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="eDn-Mm-Pbb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lf0-Ok-XFl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="935" y="23"/>
         </scene>
     </scenes>
 </document>
