@@ -29,19 +29,18 @@ class VoxelMap {
     var voxelSet = Set<Voxel>()
     let VoxelGridSize: Float = 50
 
+    // A record of voxels which have already been added.
+    private var oldVoxelSet = Set<Voxel>()
+
     func addVoxel(vector: vector_float3) {
         let voxel = Voxel(vector: normaliseVector(vector), scale: vector_float3(VoxelGridSize, VoxelGridSize, VoxelGridSize), density: 1)
-
         if voxelSet.contains(voxel) {
             guard let newVoxel = voxelSet.remove(voxel) else { return }
-//            newVoxel.scale = newVoxel.scale / 10
             newVoxel.density += 1
             voxelSet.insert(newVoxel)
         } else {
             voxelSet.insert(voxel)
         }
-        
-       
     }
 
     func recursiveMerging(_ voxel: Voxel, axes _: axes) {
@@ -74,21 +73,18 @@ class VoxelMap {
 
     func getVoxelMap() -> [SCNNode] {
         var voxelNodes = [SCNNode]()
-
         for voxel in voxelSet {
             if voxel.density < 50 { continue }
+            if oldVoxelSet.contains(voxel) { continue } // To increase rendering efficiency
             print(voxel.density)
-
             let position = voxel.Position
-
             let box = SCNBox(width: CGFloat(1 / voxel.scale.x), height: CGFloat(1 / voxel.scale.y), length: CGFloat(1 / voxel.scale.z), chamferRadius: 0)
             box.firstMaterial?.diffuse.contents = getRandomColoer()
-
             let voxelNode = SCNNode(geometry: box)
             voxelNode.position = SCNVector3(position)
             voxelNodes.append(voxelNode)
+            oldVoxelSet.insert(voxel)
         }
-
         return voxelNodes
     }
 }
