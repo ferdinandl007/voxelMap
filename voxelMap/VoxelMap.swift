@@ -41,7 +41,7 @@ class VoxelMap {
             voxelSet.insert(voxel)
         }
         
-        recursiveMerging(voxel, axes: .none)
+       
     }
 
     func recursiveMerging(_ voxel: Voxel, axes _: axes) {
@@ -82,7 +82,7 @@ class VoxelMap {
             let position = voxel.Position
 
             let box = SCNBox(width: CGFloat(1 / voxel.scale.x), height: CGFloat(1 / voxel.scale.y), length: CGFloat(1 / voxel.scale.z), chamferRadius: 0)
-            box.firstMaterial?.diffuse.contents = UIColor.darkGray
+            box.firstMaterial?.diffuse.contents = getRandomColoer()
 
             let voxelNode = SCNNode(geometry: box)
             voxelNode.position = SCNVector3(position)
