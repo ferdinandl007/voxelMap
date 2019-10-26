@@ -14,14 +14,9 @@ extension ViewController: ARSCNViewDelegate {
         // 1. Check Our Frame Is Valid & That We Have Received Our Raw Feature Points
         guard let currentFrame = self.augmentedRealitySession.currentFrame,
             let featurePointsArray = currentFrame.rawFeaturePoints?.points else { return }
-
-        addVoxels(featurePointsArray)
+        voxelMap.addVoxels(featurePointsArray)
     }
-
-    func addVoxels(_ featurePointsArray: [vector_float3]) {
-        // Loop Through The Feature Points & Add Them To The Voxel map.
-        featurePointsArray.forEach { voxelMap.addVoxel(vector: $0) }
-    }
+    
 }
 
 class ViewController: UIViewController {

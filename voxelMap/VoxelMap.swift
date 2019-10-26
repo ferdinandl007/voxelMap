@@ -27,13 +27,20 @@ protocol VoxelMapDelegate: class {
 class VoxelMap {
     weak var voxelMapDelegate: VoxelMapDelegate?
     var voxelSet = Set<Voxel>()
-    let VoxelGridSize: Float = 50
+    private var gridSize: Float = 50
+    
+    
+    init(VoxelGridCellSize: Int) {
+        self.gridSize = Float(VoxelGridCellSize)
+    }
+    
+    init() { }
 
-    // A record of voxels which have already been added.
-    private var oldVoxelSet = Set<Voxel>()
+    // A record of voxels which have already been added to the SCNScene.
+    private var alreadyRenderedVoxels = Set<Voxel>()
 
-    func addVoxel(vector: vector_float3) {
-        let voxel = Voxel(vector: normaliseVector(vector), scale: vector_float3(VoxelGridSize, VoxelGridSize, VoxelGridSize), density: 1)
+    func addVoxel(_ vector: vector_float3) {
+        let voxel = Voxel(vector: normaliseVector(vector), scale: vector_float3(gridSize, gridSize, gridSize), density: 1)
         if voxelSet.contains(voxel) {
             guard let newVoxel = voxelSet.remove(voxel) else { return }
             newVoxel.density += 1
@@ -42,8 +49,12 @@ class VoxelMap {
             voxelSet.insert(voxel)
         }
     }
+    
+    func addVoxels(_ vectors: [vector_float3]) {
+        vectors.forEach { addVoxel($0)}
+    }
 
-    func recursiveMerging(_ voxel: Voxel, axes _: axes) {
+    private func recursiveMerging(_ voxel: Voxel, axes _: axes) {
         let voxelX = voxel
         if voxelSet.contains(voxel) {
             guard let newVoxel = voxelSet.remove(voxel) else { return }
@@ -53,11 +64,11 @@ class VoxelMap {
             return
         }
 
-        voxelX.Position.x = voxelX.Position.x + (1 / VoxelGridSize)
+        voxelX.Position.x = voxelX.Position.x + (1 / gridSize)
         recursiveMerging(voxelX, axes: .x)
-        voxelX.Position.x = voxelX.Position.x + (1 / VoxelGridSize)
+        voxelX.Position.x = voxelX.Position.x + (1 / gridSize)
         recursiveMerging(voxelX, axes: .y)
-        voxelX.Position.x = voxelX.Position.x + (1 / VoxelGridSize)
+        voxelX.Position.x = voxelX.Position.x + (1 / gridSize)
         recursiveMerging(voxelX, axes: .z)
     }
 
@@ -75,7 +86,7 @@ class VoxelMap {
         var voxelNodes = [SCNNode]()
         for voxel in voxelSet {
             if voxel.density < 50 { continue }
-            if oldVoxelSet.contains(voxel) { continue } // To increase rendering efficiency
+            if alreadyRenderedVoxels.contains(voxel) { continue } // To increase rendering efficiency
             print(voxel.density)
             let position = voxel.Position
             let box = SCNBox(width: CGFloat(1 / voxel.scale.x), height: CGFloat(1 / voxel.scale.y), length: CGFloat(1 / voxel.scale.z), chamferRadius: 0)
@@ -83,7 +94,7 @@ class VoxelMap {
             let voxelNode = SCNNode(geometry: box)
             voxelNode.position = SCNVector3(position)
             voxelNodes.append(voxelNode)
-            oldVoxelSet.insert(voxel)
+            alreadyRenderedVoxels.insert(voxel)
         }
         return voxelNodes
     }
@@ -91,7 +102,7 @@ class VoxelMap {
 
 extension VoxelMap {
     // Generate a geometry point cloud out of current Vertices.
-    func pointCloudGeometry(for points: [SIMD3<Float>]) -> SCNGeometry? {
+    private func pointCloudGeometry(for points: [SIMD3<Float>]) -> SCNGeometry? {
         guard !points.isEmpty else { return nil }
 
         let stride = MemoryLayout<SIMD3<Float>>.size
@@ -122,11 +133,11 @@ extension VoxelMap {
         return pointsGeometry
     }
 
-    func normaliseVector(_ vector: vector_float3) -> vector_float3 {
-        return vector_float3(vector_int3(vector * VoxelGridSize)) / VoxelGridSize
+    private func normaliseVector(_ vector: vector_float3) -> vector_float3 {
+        return vector_float3(vector_int3(vector * gridSize)) / gridSize
     }
 
-    func getRandomColoer() -> UIColor {
+    private func getRandomColoer() -> UIColor {
         switch Int.random(in: 0 ... 2) {
         case 0:
             return UIColor.gray
