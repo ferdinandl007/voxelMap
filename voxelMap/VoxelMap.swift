@@ -27,16 +27,20 @@ protocol VoxelMapDelegate: class {
 class VoxelMap {
     weak var voxelMapDelegate: VoxelMapDelegate?
     var voxelSet = Set<Voxel>()
-    private var gridSize: Float = 50
+    private var gridSize: Float!
     
     
-    init(VoxelGridCellSize: Int) {
-        self.gridSize = Float(VoxelGridCellSize)
+    ///  Sets the minimum resolution of a Voxel in metres cubed as well as the grid size used.
+    /// - Parameter VoxelGridCellSize: grid cell size  in metres.
+    init(VoxelGridCellSize: Float) {
+        self.gridSize = 1 / VoxelGridCellSize
     }
     
-    init() { }
+    init() {
+        self.gridSize = 50
+    }
 
-    // A record of voxels which have already been added to the SCNScene.
+    /// A record of voxels which have already been added to the SCNScene.
     private var alreadyRenderedVoxels = Set<Voxel>()
 
     func addVoxel(_ vector: vector_float3) {
@@ -101,7 +105,7 @@ class VoxelMap {
 }
 
 extension VoxelMap {
-    // Generate a geometry point cloud out of current Vertices.
+    /// Generate a geometry point cloud out of current Vertices.
     private func pointCloudGeometry(for points: [SIMD3<Float>]) -> SCNGeometry? {
         guard !points.isEmpty else { return nil }
 

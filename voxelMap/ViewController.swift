@@ -26,7 +26,7 @@ class ViewController: UIViewController {
 
     let augmentedRealitySession = ARSession()
 
-    let voxelMap = VoxelMap()
+    let voxelMap = VoxelMap(VoxelGridCellSize: <#T##Float#>)
 
     override func viewDidLoad() {
         super.viewDidLoad()
