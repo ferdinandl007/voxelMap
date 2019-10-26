@@ -13,6 +13,13 @@ import SceneKit
 import SceneKit.ModelIO
 import simd
 
+enum axes {
+    case x
+    case y
+    case z
+    case none
+}
+
 protocol VoxelMapDelegate: class {
     func update(_ nodes: [SCNNode]) -> Any
 }
@@ -20,23 +27,40 @@ protocol VoxelMapDelegate: class {
 class VoxelMap {
     weak var voxelMapDelegate: VoxelMapDelegate?
     var voxelSet = Set<Voxel>()
-    var voxelNode = Set<GKOctreeNode>()
-    var octTree = GKOctree(boundingBox: GKBox(boxMin: vector_float3(-20,-20,-20), boxMax: vector_float3(20,20,20)), minimumCellSize: 0.1)
-    
+    let VoxelGridSize: Float = 50
+
     func addVoxel(vector: vector_float3) {
-        let voxel = Voxel(vector: vector, scale: vector_float3(10,10,10), density: 1)
-        
+        let voxel = Voxel(vector: normaliseVector(vector), scale: vector_float3(VoxelGridSize, VoxelGridSize, VoxelGridSize), density: 1)
+
         if voxelSet.contains(voxel) {
             guard let newVoxel = voxelSet.remove(voxel) else { return }
 //            newVoxel.scale = newVoxel.scale / 10
             newVoxel.density += 1
             voxelSet.insert(newVoxel)
         } else {
-             voxelSet.insert(voxel)
+            voxelSet.insert(voxel)
         }
+        
+        recursiveMerging(voxel, axes: .none)
     }
-    
 
+    func recursiveMerging(_ voxel: Voxel, axes _: axes) {
+        let voxelX = voxel
+        if voxelSet.contains(voxel) {
+            guard let newVoxel = voxelSet.remove(voxel) else { return }
+            newVoxel.density += 1
+            voxelSet.insert(newVoxel)
+        } else {
+            return
+        }
+
+        voxelX.Position.x = voxelX.Position.x + (1 / VoxelGridSize)
+        recursiveMerging(voxelX, axes: .x)
+        voxelX.Position.x = voxelX.Position.x + (1 / VoxelGridSize)
+        recursiveMerging(voxelX, axes: .y)
+        voxelX.Position.x = voxelX.Position.x + (1 / VoxelGridSize)
+        recursiveMerging(voxelX, axes: .z)
+    }
 
     func getPointCloudNode() -> SCNNode {
         let points = voxelSet.map { SIMD3<Float>($0.Position) }
@@ -47,20 +71,25 @@ class VoxelMap {
 
         return featurePointsNode
     }
-    
+
     func getVoxelMap() -> [SCNNode] {
-        return voxelSet.map { (voxel) -> SCNNode in
-            if voxel.density < 50 {
-                return SCNNode()
-            }
+        var voxelNodes = [SCNNode]()
+
+        for voxel in voxelSet {
+            if voxel.density < 50 { continue }
             print(voxel.density)
+
             let position = voxel.Position
-            let box = SCNBox(width: CGFloat(1 / voxel.scale.x) , height: CGFloat(1 / voxel.scale.y), length:  CGFloat(1 / voxel.scale.z), chamferRadius: 0)
+
+            let box = SCNBox(width: CGFloat(1 / voxel.scale.x), height: CGFloat(1 / voxel.scale.y), length: CGFloat(1 / voxel.scale.z), chamferRadius: 0)
             box.firstMaterial?.diffuse.contents = UIColor.darkGray
+
             let voxelNode = SCNNode(geometry: box)
             voxelNode.position = SCNVector3(position)
-            return voxelNode
+            voxelNodes.append(voxelNode)
         }
+
+        return voxelNodes
     }
 }
 
@@ -90,10 +119,27 @@ extension VoxelMap {
         let pointsGeometry = SCNGeometry(sources: [source], elements: [element])
 
         let material = SCNMaterial()
-        material.diffuse.contents = UIColor.red
+        material.diffuse.contents = getRandomColoer()
         material.isDoubleSided = true
         material.locksAmbientWithDiffuse = true
 
         return pointsGeometry
+    }
+
+    func normaliseVector(_ vector: vector_float3) -> vector_float3 {
+        return vector_float3(vector_int3(vector * VoxelGridSize)) / VoxelGridSize
+    }
+
+    func getRandomColoer() -> UIColor {
+        switch Int.random(in: 0 ... 2) {
+        case 0:
+            return UIColor.gray
+        case 1:
+            return UIColor.darkGray
+        case 2:
+            return UIColor.lightGray
+        default:
+            return UIColor.orange
+        }
     }
 }

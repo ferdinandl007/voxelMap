@@ -45,6 +45,12 @@ class ViewController: UIViewController {
 
     /// Sets Up The ARSession
     func setupARSession() {
+        if #available(iOS 11.3, *) {
+            configuration.planeDetection = [.horizontal, .vertical]
+        } else {
+            configuration.planeDetection = [.horizontal]
+        }
+
         augmentedRealityView.session = augmentedRealitySession
         augmentedRealityView.delegate = self
 
@@ -56,14 +62,14 @@ class ViewController: UIViewController {
             featurePoint.geometry = nil
             featurePoint.removeFromParentNode()
         }
-        voxelMap.getVoxelMap().forEach {augmentedRealityView.scene.rootNode.addChildNode($0)}
-//        augmentedRealityView.scene.rootNode.addChildNode(voxelMap.getPointCloudNode())
+        voxelMap.getVoxelMap().forEach { augmentedRealityView.scene.rootNode.addChildNode($0) }
     }
 
     @IBAction func goToMap(_: Any) {
+        voxelMap.getVoxelMap().forEach { augmentedRealityView.scene.rootNode.addChildNode($0) }
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         if let viewController = mainStoryboard.instantiateViewController(withIdentifier: "Map") as? MapViewController {
-            viewController.node = voxelMap.getPointCloudNode()
+            viewController.node = augmentedRealityView.scene.rootNode.clone()
             present(viewController, animated: true, completion: nil)
         }
     }

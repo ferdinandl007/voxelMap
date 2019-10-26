@@ -50,7 +50,6 @@
                     </view>
                     <connections>
                         <outlet property="augmentedRealityView" destination="BrB-h1-WRS" id="NqE-7Y-K4v"/>
-                        <segue destination="9t2-rf-big" kind="show" identifier="map" destinationCreationSelector="map" id="eBT-FX-mM8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
@@ -62,11 +61,11 @@
             <objects>
                 <viewController storyboardIdentifier="Map" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9t2-rf-big" customClass="MapViewController" customModule="voxelMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9f1-xG-5L1" customClass="SCNView">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SPH-zb-OHR">
-                                <rect key="frame" x="20" y="0.0" width="52" height="59"/>
+                                <rect key="frame" x="20" y="44" width="52" height="59"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="59" id="HZV-2o-roD"/>
                                 </constraints>

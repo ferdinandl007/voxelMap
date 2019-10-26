@@ -15,10 +15,6 @@ class testVoxel: XCTestCase {
         XCTAssertEqual(voxel.density, 1)
         XCTAssertEqual(voxel.Position, vector_float3(1, 2, 3))
     }
-    
-    
-    func testMakeVoxel() {
-       
-    }
 
+    func testMakeVoxel() {}
 }
