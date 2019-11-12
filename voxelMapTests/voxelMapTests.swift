@@ -19,7 +19,7 @@ class voxelMapTests: XCTestCase {
 
         map = VoxelMap()
         for i in 0 ... 10 {
-            map.addVoxel(vector: vector_float3(x: Float(i), y: Float(i), z: Float(i)))
+            map.addVoxel(vector_float3(x: Float(i), y: Float(i), z: Float(i)))
             voxelCount += 1
         }
     }
@@ -30,13 +30,13 @@ class voxelMapTests: XCTestCase {
     }
 
     func testCorrectNumberOfVoxelNodes() {
-        map.addVoxel(vector: vector_float3(x: 100, y: 100, z: 100))
+        map.addVoxel(vector_float3(x: 100, y: 100, z: 100))
         voxelCount += 1
         XCTAssertEqual(map.voxelSet.count, voxelCount)
     }
 
     func testNoDuplicatesVoxels() {
-        map.addVoxel(vector: vector_float3(x: 5, y: 5, z: 5))
+        map.addVoxel(vector_float3(x: 5, y: 5, z: 5))
         XCTAssertEqual(map.voxelSet.count, voxelCount)
     }
 
