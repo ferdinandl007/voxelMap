@@ -92,7 +92,7 @@ class VoxelMap {
             let zv = zmax + Float(position.y ?? 0)
             let x = xv * (1.0 / gridSize!)
             let z = zv * (1.0 / gridSize!)
-            return vector_float3(x: x, y: (groundHeight ?? -1)  + 0.4, z: z)
+            return vector_float3(x: x, y: (groundHeight ?? -1) + 0.4, z: z)
         }
 
         return pathVectors
