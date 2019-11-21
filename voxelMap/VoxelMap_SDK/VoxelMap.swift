@@ -10,7 +10,7 @@ import ARKit
 import Foundation
 import GameplayKit
 import simd
-
+import UIKit
 enum axes {
     case x
     case y
@@ -19,19 +19,21 @@ enum axes {
 }
 
 protocol VoxelMapDelegate: class {
-    func update(_ nodes: [SCNNode]) -> Any
+    func updateDebugView(_ View: UIView)
 }
 
 class VoxelMap {
-    let queue = DispatchQueue(label: "Voxel")
+    private let queue = DispatchQueue(label: "Voxel")
     weak var voxelMapDelegate: VoxelMapDelegate?
-    var voxelSet = Set<Voxel>()
+    private var voxelSet = Set<Voxel>()
     private var gridSize: Float!
     private var groundHeight: Float?
     private var xMax: Float? // Max width
     private var xMin: Float? // Min width
     private var zMax: Float? // Max length
     private var zMin: Float? // Min length
+
+    var noiseLevel = 5
 
     ///  Sets the minimum resolution of a Voxel in metres cubed as well as the grid size used.
     /// - Parameter VoxelGridCellSize: grid cell size  in metres.
@@ -76,34 +78,36 @@ class VoxelMap {
         return featurePointsNode
     }
 
-    func getPath(start: vector_float3, end _: vector_float3) -> [vector_float3]? {
+    func getPath(start: SCNVector3, end _: SCNVector3) -> [vector_float3]? {
         setMinMax()
-        guard let matrix = makeGraph() else { return nil }
+        guard let map = makeGraph() else { return nil }
         guard let xmax = xMax else { return nil }
         guard let zmax = zMax else { return nil }
-        let _start = Position(Int((xmax - start.x) / (1.0 / gridSize)),
-                              Int((zmax - start.z) / (1.0 / gridSize)))
-        let _end = Position(Int((xmax - start.x) / (1.0 / gridSize)),
-                            Int((zmax - start.z) / (1.0 / gridSize)))
-        let _path = Pathfinding.aStarPath(map: matrix, start: _start, end: _end)
+        let _start = CGPoint(x: Int((xmax - start.x) / (1.0 / gridSize)),
+                             y: Int((zmax - start.z) / (1.0 / gridSize)))
+        let _end = CGPoint(x: Int((xmax - start.x) / (1.0 / gridSize)),
+                           y: Int((zmax - start.z) / (1.0 / gridSize)))
 
-        let pathVectors = _path.map { (position) -> vector_float3 in
-            let xv = xmax + Float(position.x ?? 0)
-            let zv = zmax + Float(position.y ?? 0)
-            let x = xv * (1.0 / gridSize!)
-            let z = zv * (1.0 / gridSize!)
-            return vector_float3(x: x, y: (groundHeight ?? -1) + 0.4, z: z)
-        }
+        let aStar = AStar(map: map, start: _start, diag: true)
+        let path = aStar.findPathTo(end: _end)
 
-        return pathVectors
+//        let pathVectors = _path.map { (node) -> vector_float3 in
+//            let xv = xmax + Float(node.position.x ?? 0)
+//            let zv = zmax + Float(node.position.y ?? 0)
+//            let x = xv * (1.0 / gridSize!)
+//            let z = zv * (1.0 / gridSize!)
+//            return vector_float3(x: x, y: (groundHeight ?? -1) + 0.4, z: z)
+//        }
+
+        return []
     }
 
-    func getVoxelMap() -> [SCNNode] {
+    func getVoxelMap(redrawAll: Bool) -> [SCNNode] {
         var voxelNodes = [SCNNode]()
         let voxels = voxelSet
         for voxel in voxels {
-            if voxel.density < 50 { continue }
-            if alreadyRenderedVoxels.contains(voxel) { continue } // To increase rendering efficiency
+            if voxel.density < noiseLevel { continue }
+            if !redrawAll, alreadyRenderedVoxels.contains(voxel) { continue } // To increase rendering efficiency
             print(voxel.density)
             let position = voxel.Position
             let box = SCNBox(width: CGFloat(1 / voxel.scale.x), height: CGFloat(1 / voxel.scale.y), length: CGFloat(1 / voxel.scale.z), chamferRadius: 0)
@@ -144,7 +148,7 @@ class VoxelMap {
             let column = Int((zmax - voxel.Position.z) / (1.0 / gridSize))
             if voxel.Position.y < (groundHeight ?? -10) + 0.4 {
                 graph[row][column] = 0
-            } else {
+            } else if voxel.density > noiseLevel {
                 graph[row][column] = 1
             }
         }
@@ -152,41 +156,28 @@ class VoxelMap {
         return graph
     }
 
-    func getObstacleGraphDebug() -> UIView {
-        guard let matrix = makeGraph() else { return UIView() }
-        return MapVisualisation(map: matrix)
+    func getObstacleGraphDebug() {
+        guard let matrix = makeGraph() else { return }
+        voxelMapDelegate?.updateDebugView(MapVisualisation(map: matrix))
     }
 
-    func getObstacleGraphAndPathDebug(start: vector_float3, end _: vector_float3) -> UIView {
+    func getObstacleGraphAndPathDebug(start: SCNVector3, end: SCNVector3) {
         setMinMax()
-        guard var matrix = makeGraph() else { return UIView() }
-        guard let xmax = xMax else { return UIView() }
-        guard let zmax = zMax else { return UIView() }
-        let _start = Position(Int((xmax - start.x) / (1.0 / gridSize)),
-                              Int((zmax - start.z) / (1.0 / gridSize)))
-        let _end = Position(Int((xmax - start.x) / (1.0 / gridSize)),
-                            Int((zmax - start.z) / (1.0 / gridSize)))
-        let path = Pathfinding.aStarPath(map: matrix, start: _start, end: _end)
-        path.forEach { matrix[$0.x][$0.y] = 3 }
-        return MapVisualisation(map: matrix)
-    }
-
-    private func recursiveMerging(_ voxel: Voxel, axes _: axes) {
-        let voxelX = voxel
-        if voxelSet.contains(voxel) {
-            guard let newVoxel = voxelSet.remove(voxel) else { return }
-            newVoxel.density += 1
-            voxelSet.insert(newVoxel)
-        } else {
-            return
+        guard var map = makeGraph() else { return }
+        guard let xmax = xMax else { return }
+        guard let zmax = zMax else { return }
+        let _start = CGPoint(x: Int((xmax - start.x) / (1.0 / gridSize)),
+                             y: Int((zmax - start.z) / (1.0 / gridSize)))
+        let _end = CGPoint(x: Int((xmax - end.x) / (1.0 / gridSize)),
+                           y: Int((zmax - end.z) / (1.0 / gridSize)))
+        queue.async {
+            let aStar = AStar(map: map, start: _start, diag: true)
+            guard let path = aStar.findPathTo(end: _end) else { return }
+            path.forEach { map[$0.position.xI][$0.position.yI] = 3 }
+            DispatchQueue.main.async {
+                self.voxelMapDelegate?.updateDebugView(MapVisualisation(map: map))
+            }
         }
-
-        voxelX.Position.x = voxelX.Position.x + (1 / gridSize)
-        recursiveMerging(voxelX, axes: .x)
-        voxelX.Position.x = voxelX.Position.x + (1 / gridSize)
-        recursiveMerging(voxelX, axes: .y)
-        voxelX.Position.x = voxelX.Position.x + (1 / gridSize)
-        recursiveMerging(voxelX, axes: .z)
     }
 }
 

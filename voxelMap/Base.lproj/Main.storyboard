@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,46 +16,91 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="76" width="414" height="523"/>
                             </arscnView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1s-KP-INU">
                                 <rect key="frame" x="0.0" y="807" width="414" height="89"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="89" id="JZn-oZ-Hv3"/>
+                                    <constraint firstAttribute="height" constant="89" id="Q8m-Qs-6Ht"/>
                                 </constraints>
                                 <state key="normal" title="make Voxels"/>
                                 <connections>
                                     <action selector="makeVoxels:" destination="BV1-FR-VrT" eventType="touchUpInside" id="cgy-xy-w7r"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lth-qd-Dfl">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lth-qd-Dfl">
                                 <rect key="frame" x="369" y="44" width="25" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="4cE-qk-k16"/>
+                                    <constraint firstAttribute="height" constant="24" id="9yL-3T-1TO"/>
+                                </constraints>
                                 <connections>
                                     <action selector="goToMap:" destination="BV1-FR-VrT" eventType="touchUpInside" id="7lY-yd-BRr"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4gN-nD-hm5">
-                                <rect key="frame" x="97" y="607" width="220" height="192"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="4gN-nD-hm5">
+                                <rect key="frame" x="0.0" y="615" width="414" height="192"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="4gN-nD-hm5" secondAttribute="height" multiplier="69:32" id="RJw-8B-W7x"/>
+                                </constraints>
                             </view>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Oga-eT-QnB">
+                                <rect key="frame" x="20" y="44" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="unc-6T-UVO"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="setValue:" destination="BV1-FR-VrT" eventType="touchUpInside" id="mlt-Fi-1eK"/>
+                                    <action selector="slider:" destination="BV1-FR-VrT" eventType="valueChanged" id="6jA-aO-sMN"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6KY-1n-BLg">
+                                <rect key="frame" x="22" y="15" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="3Ci-mz-4MP"/>
+                                    <constraint firstAttribute="height" constant="21" id="grP-zN-1E6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="iwQ-6v-fMU">
+                                <rect key="frame" x="354" y="11" width="20" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="SWb-cy-gaw"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="o1s-KP-INU" secondAttribute="trailing" id="16a-O5-S9c"/>
-                            <constraint firstItem="o1s-KP-INU" firstAttribute="trailing" secondItem="BrB-h1-WRS" secondAttribute="trailing" id="63B-xt-xjF"/>
-                            <constraint firstItem="o1s-KP-INU" firstAttribute="leading" secondItem="BrB-h1-WRS" secondAttribute="leading" id="J7P-BB-Rnm"/>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="Ssa-CJ-LQx"/>
-                            <constraint firstAttribute="bottom" secondItem="o1s-KP-INU" secondAttribute="bottom" id="Tnu-7P-YKK"/>
-                            <constraint firstItem="o1s-KP-INU" firstAttribute="leading" secondItem="U0K-SW-4ec" secondAttribute="leading" id="atA-31-L90"/>
-                            <constraint firstItem="o1s-KP-INU" firstAttribute="bottom" secondItem="BrB-h1-WRS" secondAttribute="bottom" id="lZC-Y1-V50"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="1Xw-Lu-9DI"/>
+                            <constraint firstAttribute="trailing" secondItem="iwQ-6v-fMU" secondAttribute="trailing" constant="40" id="5lt-lF-ECX"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="lth-qd-Dfl" secondAttribute="trailing" constant="20" id="7N5-hw-RrL"/>
+                            <constraint firstItem="o1s-KP-INU" firstAttribute="top" secondItem="4gN-nD-hm5" secondAttribute="bottom" id="D91-AB-42g"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="lth-qd-Dfl" secondAttribute="bottom" constant="8" id="NJw-fW-VrK"/>
+                            <constraint firstItem="4gN-nD-hm5" firstAttribute="top" secondItem="BrB-h1-WRS" secondAttribute="bottom" constant="16" id="O5m-rV-VRs"/>
+                            <constraint firstItem="lth-qd-Dfl" firstAttribute="top" secondItem="fQZ-KI-GVf" secondAttribute="top" id="OV3-yW-Khc"/>
+                            <constraint firstItem="Oga-eT-QnB" firstAttribute="top" secondItem="fQZ-KI-GVf" secondAttribute="top" id="SWW-3V-fSO"/>
+                            <constraint firstItem="iwQ-6v-fMU" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" constant="11" id="SaY-la-pgx"/>
+                            <constraint firstItem="4gN-nD-hm5" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="TtY-79-3XX"/>
+                            <constraint firstItem="o1s-KP-INU" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="WL6-DU-wLw"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="WQZ-52-pgo"/>
+                            <constraint firstItem="o1s-KP-INU" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="XON-bq-faS"/>
+                            <constraint firstItem="6KY-1n-BLg" firstAttribute="leading" secondItem="U0K-SW-4ec" secondAttribute="leading" constant="22" id="ZOH-Ih-11Q"/>
+                            <constraint firstItem="lth-qd-Dfl" firstAttribute="leading" secondItem="Oga-eT-QnB" secondAttribute="trailing" constant="8" id="g5b-D9-1j7"/>
+                            <constraint firstItem="Oga-eT-QnB" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="22" id="gv5-na-e3h"/>
+                            <constraint firstItem="4gN-nD-hm5" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="oVs-9a-Huh"/>
+                            <constraint firstItem="6KY-1n-BLg" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" constant="15" id="ytU-Mr-5T5"/>
+                            <constraint firstAttribute="bottom" secondItem="o1s-KP-INU" secondAttribute="bottom" id="zId-YQ-vm4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
                     </view>
                     <connections>
                         <outlet property="augmentedRealityView" destination="BrB-h1-WRS" id="NqE-7Y-K4v"/>
                         <outlet property="debugimage" destination="4gN-nD-hm5" id="113-5t-Qsf"/>
+                        <outlet property="sliderLabel" destination="6KY-1n-BLg" id="4B3-PO-Chg"/>
+                        <outlet property="spinner" destination="iwQ-6v-fMU" id="aUw-KC-Gep"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>

@@ -8,7 +8,6 @@
 
 import ARKit
 import UIKit
-
 class ViewController: UIViewController {
     @IBOutlet var augmentedRealityView: ARSCNView!
 
@@ -18,12 +17,94 @@ class ViewController: UIViewController {
 
     let voxelMap = VoxelMap(VoxelGridCellSize: 0.1)
 
+    var end = SCNVector3()
+
+    var sliderValue = 0
+
+    var voxleRootNode = SCNNode()
+
+    @IBOutlet var sliderLabel: UILabel!
     @IBOutlet var debugimage: UIView!
+    @IBOutlet var spinner: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        tapRecognizer.numberOfTapsRequired = 2
+        view.addGestureRecognizer(tapRecognizer)
         setupARSession()
+        voxelMap.voxelMapDelegate = self
+        spinner.isHidden = true
+    }
+
+    @objc func handleTap(sender: UITapGestureRecognizer) {
+        let tapLocation = sender.location(in: augmentedRealityView)
+
+        let hitTestResults = augmentedRealityView.hitTest(tapLocation, types: .featurePoint)
+
+        for result in hitTestResults {
+            let pos = result.worldTransform.columns.3
+            addMarker(SCNVector3(pos.x, pos.y + 0.06, pos.z))
+        }
+    }
+
+    @IBAction func setValue(_: Any) {
+        spinner.isHidden = false
+        spinner.startAnimating()
+        voxelMap.noiseLevel = sliderValue
+        let transform = augmentedRealityView.pointOfView!.transform
+        let cam = SCNVector3(transform.m41, transform.m42, transform.m43)
+        voxelMap.getObstacleGraphAndPathDebug(start: cam, end: end)
+    }
+
+    @IBAction func slider(_ sender: UISlider) {
+        sliderValue = Int(sender.value)
+        sliderLabel.text = "\(sliderValue)"
+    }
+
+    func addMarker(_ p: SCNVector3) {
+        let pin = newPinMarker()!
+        pin.worldPosition = p
+        pin.scale = SCNVector3(x: 1, y: 1, z: 1) * 3.25
+        let transform = augmentedRealityView.pointOfView!.transform
+        let cam = SCNVector3(transform.m41, transform.m42, transform.m43)
+        end = p
+        augmentedRealityView.scene.rootNode.addChildNode(pin)
+        voxelMap.getObstacleGraphAndPathDebug(start: cam, end: p)
+        spinner.isHidden = false
+        spinner.startAnimating()
+    }
+
+    func newPinMarker(color: UIColor = UIColor.magenta,
+                      addLights _: Bool = true,
+                      constantLighting: Bool = false) -> SCNNode? {
+        guard let pinRoot = SCNScene(named: "pin.scn")?.rootNode else { return nil }
+
+        guard let pin = pinRoot.childNode(withName: "pin", recursively: true) else { return nil }
+
+        if let cyl = pin.childNode(withName: "cylinder", recursively: true) {
+            cyl.renderingOrder = 5601
+            if constantLighting {
+                cyl.geometry?.firstMaterial?.lightingModel = .constant
+            }
+        }
+
+        if let cyl = pin.childNode(withName: "cone", recursively: true) {
+            cyl.renderingOrder = 5600
+            if constantLighting {
+                cyl.geometry?.firstMaterial?.lightingModel = .constant
+            }
+        }
+
+        if let cyl = pin.childNode(withName: "sphere", recursively: true) {
+            cyl.geometry?.firstMaterial?.diffuse.contents = color
+            cyl.renderingOrder = 5602
+            if constantLighting {
+                cyl.geometry?.firstMaterial?.lightingModel = .constant
+            }
+        }
+
+        return pin
     }
 
     override var prefersStatusBarHidden: Bool { return true }
@@ -45,15 +126,16 @@ class ViewController: UIViewController {
     }
 
     @IBAction func makeVoxels(_: Any) {
-        voxelMap.getVoxelMap().forEach { self.augmentedRealityView.scene.rootNode.addChildNode($0) }
-        let view = voxelMap.getObstacleGraphDebug()
-        debugimage.addSubview(view)
-
-        print(voxelMap.makeGraph())
+//        voxelMap.getVoxelMap().forEach { self.augmentedRealityView.scene.rootNode.addChildNode($0) }
+        let transform = augmentedRealityView.pointOfView!.transform
+        let cam = SCNVector3(transform.m41, transform.m42, transform.m43)
+        voxelMap.getObstacleGraphAndPathDebug(start: cam, end: end)
+        spinner.isHidden = false
+        spinner.startAnimating()
     }
 
     @IBAction func goToMap(_: Any) {
-        voxelMap.getVoxelMap().forEach { self.augmentedRealityView.scene.rootNode.addChildNode($0) }
+        voxelMap.getVoxelMap(redrawAll: true).forEach { voxleRootNode.addChildNode($0) }
         augmentedRealityView.scene.rootNode.enumerateChildNodes { node, _ in
             if node.name == "Plane" {
                 node.removeFromParentNode()
@@ -62,7 +144,7 @@ class ViewController: UIViewController {
 
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         if let viewController = mainStoryboard.instantiateViewController(withIdentifier: "Map") as? MapViewController {
-            viewController.node = augmentedRealityView.scene.rootNode.clone()
+            viewController.node = voxleRootNode.clone()
             present(viewController, animated: true, completion: nil)
         }
     }
@@ -107,5 +189,13 @@ extension ViewController: ARSCNViewDelegate {
             extentGeometry.height = CGFloat(planeAnchor.extent.z)
             plane.extentNode.simdPosition = planeAnchor.center
         }
+    }
+}
+
+extension ViewController: VoxelMapDelegate {
+    func updateDebugView(_ View: UIView) {
+        debugimage.addSubview(View)
+        spinner.isHidden = true
+        spinner.stopAnimating()
     }
 }
