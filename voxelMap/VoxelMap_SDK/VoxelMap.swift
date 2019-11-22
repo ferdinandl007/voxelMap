@@ -11,30 +11,34 @@ import Foundation
 import GameplayKit
 import simd
 import UIKit
-enum axes {
-    case x
-    case y
-    case z
-    case none
-}
 
+/// Description
 protocol VoxelMapDelegate: class {
+    /// Description
+    /// - Parameter View: View description
     func updateDebugView(_ View: UIView)
+    /// Description
+    /// - Parameter path: path description
     func getPathupdate(_ path: [vector_float3]?)
 }
 
 class VoxelMap {
     private let queue = DispatchQueue(label: "Voxel")
-    weak var voxelMapDelegate: VoxelMapDelegate?
     private var voxelSet = Set<Voxel>()
     private var gridSize: Float!
     private var groundHeight: Float?
-    private var xMax: Float? // Max width
-    private var xMin: Float? // Min width
-    private var zMax: Float? // Max length
-    private var zMin: Float? // Min length
+    private var xMax: Float? // Max width.
+    private var xMin: Float? // Min width.
+    private var zMax: Float? // Max length.
+    private var zMin: Float? // Min length.
+    // A record of voxels which have already been added to the SCNScene.
+    private var alreadyRenderedVoxels = Set<Voxel>()
 
+    /// Description
     var noiseLevel = 5
+
+    /// Description
+    weak var voxelMapDelegate: VoxelMapDelegate?
 
     ///  Sets the minimum resolution of a Voxel in metres cubed as well as the grid size used.
     /// - Parameter VoxelGridCellSize: grid cell size  in metres.
@@ -46,9 +50,8 @@ class VoxelMap {
         gridSize = 50
     }
 
-    /// A record of voxels which have already been added to the SCNScene.
-    private var alreadyRenderedVoxels = Set<Voxel>()
-
+    /// Description
+    /// - Parameter vector: vector description
     func addVoxel(_ vector: vector_float3) {
         let voxel = Voxel(vector: normaliseVector(vector), scale: vector_float3(gridSize, gridSize, gridSize), density: 1)
         if voxelSet.contains(voxel) {
@@ -60,14 +63,19 @@ class VoxelMap {
         }
     }
 
+    /// Description
+    /// - Parameter vectors: vectors description
     func addVoxels(_ vectors: [vector_float3]) {
         vectors.forEach { addVoxel($0) }
     }
 
+    /// Description
+    /// - Parameter plane: plane description
     func updateGroundPlane(_ plane: ARPlaneAnchor) {
         groundHeight = min(plane.transform.columns.3.y, groundHeight ?? Float(Int.max))
     }
 
+    /// Description
     func getPointCloudNode() -> SCNNode {
         let voxels = voxelSet
         let points = voxels.map { SIMD3<Float>($0.Position) }
@@ -79,15 +87,19 @@ class VoxelMap {
         return featurePointsNode
     }
 
-    func getPath(start: SCNVector3, end _: SCNVector3) {
+    /// Description
+    /// - Parameters:
+    ///   - start: start description
+    ///   - end: end description
+    func getPath(start: SCNVector3, end: SCNVector3) {
         setMinMax()
         guard let map = makeGraph() else { return }
         guard let xmax = xMax else { return }
         guard let zmax = zMax else { return }
         let _start = CGPoint(x: Int((xmax - start.x) / (1.0 / gridSize)),
                              y: Int((zmax - start.z) / (1.0 / gridSize)))
-        let _end = CGPoint(x: Int((xmax - start.x) / (1.0 / gridSize)),
-                           y: Int((zmax - start.z) / (1.0 / gridSize)))
+        let _end = CGPoint(x: Int((xmax - end.x) / (1.0 / gridSize)),
+                           y: Int((zmax - end.z) / (1.0 / gridSize)))
 
         queue.async {
             let aStar = AStar(map: map, start: _start, diag: true)
@@ -106,6 +118,8 @@ class VoxelMap {
         }
     }
 
+    /// Description
+    /// - Parameter redrawAll: redrawAll description
     func getVoxelMap(redrawAll: Bool) -> [SCNNode] {
         var voxelNodes = [SCNNode]()
         let voxels = voxelSet
@@ -125,6 +139,35 @@ class VoxelMap {
         return voxelNodes
     }
 
+    /// Description
+    func getObstacleGraphDebug() {
+        guard let matrix = makeGraph() else { return }
+        voxelMapDelegate?.updateDebugView(MapVisualisation(map: matrix))
+    }
+
+    /// Description
+    /// - Parameters:
+    ///   - start: start description
+    ///   - end: end description
+    func getObstacleGraphAndPathDebug(start: SCNVector3, end: SCNVector3) {
+        setMinMax()
+        guard var map = makeGraph() else { return }
+        guard let xmax = xMax else { return }
+        guard let zmax = zMax else { return }
+        let _start = CGPoint(x: Int((xmax - start.x) / (1.0 / gridSize)),
+                             y: Int((zmax - start.z) / (1.0 / gridSize)))
+        let _end = CGPoint(x: Int((xmax - end.x) / (1.0 / gridSize)),
+                           y: Int((zmax - end.z) / (1.0 / gridSize)))
+        queue.async {
+            let aStar = AStar(map: map, start: _start, diag: true)
+            guard let path = aStar.findPathTo(end: _end) else { return }
+            path.forEach { map[$0.position.xI][$0.position.yI] = 3 }
+            DispatchQueue.main.async {
+                self.voxelMapDelegate?.updateDebugView(MapVisualisation(map: map))
+            }
+        }
+    }
+
     private func setMinMax() {
         let voxels = voxelSet
         voxels.forEach { voxel in
@@ -135,7 +178,7 @@ class VoxelMap {
         }
     }
 
-    func makeGraph() -> [[Int]]? {
+    private func makeGraph() -> [[Int]]? {
         setMinMax()
         guard let xmax = xMax else { return nil }
         guard let xmin = xMin else { return nil }
@@ -160,32 +203,6 @@ class VoxelMap {
         return graph
     }
 
-    func getObstacleGraphDebug() {
-        guard let matrix = makeGraph() else { return }
-        voxelMapDelegate?.updateDebugView(MapVisualisation(map: matrix))
-    }
-
-    func getObstacleGraphAndPathDebug(start: SCNVector3, end: SCNVector3) {
-        setMinMax()
-        guard var map = makeGraph() else { return }
-        guard let xmax = xMax else { return }
-        guard let zmax = zMax else { return }
-        let _start = CGPoint(x: Int((xmax - start.x) / (1.0 / gridSize)),
-                             y: Int((zmax - start.z) / (1.0 / gridSize)))
-        let _end = CGPoint(x: Int((xmax - end.x) / (1.0 / gridSize)),
-                           y: Int((zmax - end.z) / (1.0 / gridSize)))
-        queue.async {
-            let aStar = AStar(map: map, start: _start, diag: true)
-            guard let path = aStar.findPathTo(end: _end) else { return }
-            path.forEach { map[$0.position.xI][$0.position.yI] = 3 }
-            DispatchQueue.main.async {
-                self.voxelMapDelegate?.updateDebugView(MapVisualisation(map: map))
-            }
-        }
-    }
-}
-
-extension VoxelMap {
     /// Generate a geometry point cloud out of current Vertices.
     private func pointCloudGeometry(for points: [SIMD3<Float>]) -> SCNGeometry? {
         guard !points.isEmpty else { return nil }
