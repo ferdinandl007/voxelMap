@@ -193,6 +193,8 @@ extension ViewController: ARSCNViewDelegate {
 }
 
 extension ViewController: VoxelMapDelegate {
+    func getPathupdate(_: [vector_float3]?) {}
+
     func updateDebugView(_ View: UIView) {
         debugimage.addSubview(View)
         spinner.isHidden = true

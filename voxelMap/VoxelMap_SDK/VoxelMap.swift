@@ -20,6 +20,7 @@ enum axes {
 
 protocol VoxelMapDelegate: class {
     func updateDebugView(_ View: UIView)
+    func getPathupdate(_ path: [vector_float3]?)
 }
 
 class VoxelMap {
@@ -78,28 +79,31 @@ class VoxelMap {
         return featurePointsNode
     }
 
-    func getPath(start: SCNVector3, end _: SCNVector3) -> [vector_float3]? {
+    func getPath(start: SCNVector3, end _: SCNVector3) {
         setMinMax()
-        guard let map = makeGraph() else { return nil }
-        guard let xmax = xMax else { return nil }
-        guard let zmax = zMax else { return nil }
+        guard let map = makeGraph() else { return }
+        guard let xmax = xMax else { return }
+        guard let zmax = zMax else { return }
         let _start = CGPoint(x: Int((xmax - start.x) / (1.0 / gridSize)),
                              y: Int((zmax - start.z) / (1.0 / gridSize)))
         let _end = CGPoint(x: Int((xmax - start.x) / (1.0 / gridSize)),
                            y: Int((zmax - start.z) / (1.0 / gridSize)))
 
-        let aStar = AStar(map: map, start: _start, diag: true)
-        let path = aStar.findPathTo(end: _end)
+        queue.async {
+            let aStar = AStar(map: map, start: _start, diag: true)
+            let path = aStar.findPathTo(end: _end)?.map({ (n) -> vector_float3 in
 
-//        let pathVectors = _path.map { (node) -> vector_float3 in
-//            let xv = xmax + Float(node.position.x ?? 0)
-//            let zv = zmax + Float(node.position.y ?? 0)
-//            let x = xv * (1.0 / gridSize!)
-//            let z = zv * (1.0 / gridSize!)
-//            return vector_float3(x: x, y: (groundHeight ?? -1) + 0.4, z: z)
-//        }
+                let xv = xmax + Float(n.position.x)
+                let zv = zmax + Float(n.position.y)
+                let x = xv * (1.0 / self.gridSize!)
+                let z = zv * (1.0 / self.gridSize!)
+                return vector_float3(x: x, y: (self.groundHeight ?? -1) + 0.4, z: z)
+            })
 
-        return []
+            DispatchQueue.main.async {
+                self.voxelMapDelegate?.getPathupdate(path)
+            }
+        }
     }
 
     func getVoxelMap(redrawAll: Bool) -> [SCNNode] {
@@ -142,7 +146,7 @@ class VoxelMap {
         let columns = Int((zmax - zmin) / (1.0 / gridSize))
         // var graph = Matrix(rows: rows + 1, columns: columns + 1)
         var graph = Array(repeating: Array(repeating: 2, count: columns + 2), count: rows + 2)
-        let voxels = voxelSet
+        let voxels = voxelSet.map { $0 }
         voxels.forEach { voxel in
             let row = Int((xmax - voxel.Position.x) / (1.0 / gridSize))
             let column = Int((zmax - voxel.Position.z) / (1.0 / gridSize))

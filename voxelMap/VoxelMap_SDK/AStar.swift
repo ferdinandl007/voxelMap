@@ -40,7 +40,7 @@ class AStar {
     private var end: CGPoint
     private var diag: Bool
 
-    ///  initialises a navigational instance
+    ///  initialises a navigational instance.
     /// - Parameters:
     ///   - map:  integer map  with values between 0 to 2
     ///   - start:   starting point
@@ -83,7 +83,7 @@ class AStar {
         closed.append(now)
         addNeigborsToOpenList()
         while now.position.x != end.x || now.position.y != end.y {
-            if open.isEmpty { // Nothing to examine
+            if open.isEmpty { // Nothing to examine.
                 return nil
             }
             now = open[0]
@@ -100,18 +100,18 @@ class AStar {
         return path
     }
 
-    /// Looks in a given List<> for a node
+    /// Looks in a given List<> for a node.
     private func findNeighborInList(_ array: [Node], _ node: Node) -> Bool {
         return (array.first { $0.position.x == node.position.x && $0.position.y == node.position.y } != nil)
     }
 
-    /// Calulate distance between this.now and xend/yend
-    /// -@return (int) distance
+    /// Calulate distance between this.now and xend/yend.
+    /// -@return (int) distance.
     private func distance(_ point: CGPoint) -> Double {
-        if diag { // if diagonal movement is alloweed
-            return hypot((now.position.xD + point.xD) - end.xD, (now.position.yD + point.yD) - end.yD) // return hypothenuse
+        if diag { // if diagonal movement is alloweed.
+            return hypot((now.position.xD + point.xD) - end.xD, (now.position.yD + point.yD) - end.yD) // return hypothenuse.
         } else {
-            return abs((now.position.xD + point.xD) - end.xD) - abs((now.position.xD + point.xD) - end.yD) // else return "Manhattan distance
+            return abs((now.position.xD + point.xD) - end.xD) - abs((now.position.xD + point.xD) - end.yD) // else return "Manhattan distance.
         }
     }
 
@@ -120,22 +120,22 @@ class AStar {
         for x in -1 ... 1 {
             for y in -1 ... 1 {
                 if !diag && x != 0 && y != 0 {
-                    continue // skip if diagonal movement is not allowed
+                    continue // skip if diagonal movement is not allowed.
                 }
                 node = Node(parent: now, position: CGPoint(x: now.position.xI + x, y: now.position.yI + y), g: now.g + Double(y), h: distance(CGPoint(x: x, y: y)))
 
                 if x != 0 || y != 0,
-                    now.position.xI + x >= 0, now.position.xI + x < map[0].count, // check maze boundaries
+                    now.position.xI + x >= 0, now.position.xI + x < map[0].count, // check maze boundaries.
                     now.position.yI + y >= 0, now.position.yI + y < map.count,
-                    map[now.position.yI + y][now.position.xI + x] != 1, // check if square is walkable
+                    map[now.position.yI + y][now.position.xI + x] != 1, // check if square is walkable.
                     !findNeighborInList(open, node), !findNeighborInList(closed, node) {
-                    node.g = node.parent!.g + 1 // Horizontal/vertical cost = 1.0
-                    node.g += Double(map[now.position.yI + y][now.position.xI + x]) // add movement cost for this square
+                    node.g = node.parent!.g + 1 // Horizontal/vertical cost = 1.0.
+                    node.g += Double(map[now.position.yI + y][now.position.xI + x]) // add movement cost for this square.
                     node.g += map[now.position.yI + y][now.position.xI + x] == 2 ? 10 : 0
-                    // diagonal cost = sqrt(hor_cost² + vert_cost²)
-                    // in this example the cost would be 12.2 instead of 11
+                    // diagonal cost = sqrt(hor_cost² + vert_cost²).
+                    // in this example the cost would be 12.2 instead of 11.
                     if diag, x != 0, y != 0 {
-                        node.g += 0.4 // Diagonal movement cost = 1.4
+                        node.g += 0.4 // Diagonal movement cost = 1.4.
                     }
                     open.append(node)
                 }
