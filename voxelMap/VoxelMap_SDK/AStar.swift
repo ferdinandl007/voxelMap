@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 class AStar {
-    class Node: Comparable {
+    class Node: Comparable, Hashable {
         var parent: Node?
         var position: CGPoint
         var g: Double
@@ -13,6 +13,11 @@ class AStar {
             self.position = position
             self.g = g
             self.h = h
+        }
+
+        func hash(into hasher: inout Hasher) {
+            let hash = (Int(position.x) * 499) + (Int(position.y) * 937)
+            hasher.combine(hash)
         }
 
         init() {
@@ -27,12 +32,13 @@ class AStar {
         }
 
         static func == (lhs: AStar.Node, rhs: AStar.Node) -> Bool {
-            return (lhs.g + lhs.h) == (rhs.g + rhs.h)
+            return lhs.position == rhs.position
         }
     }
 
-    private var open: [Node]
-    private var closed: [Node]
+    private var open: Heap<Node>
+    private var openSet: Set<Node>
+    private var closed: Set<Node>
     private var path: [Node]
     private var map: [[Int]]
     private var now: Node
@@ -40,20 +46,16 @@ class AStar {
     private var end: CGPoint
     private var diag: Bool
 
-    ///  initialises a navigational instance.
-    /// - Parameters:
-    ///   - map:  integer map  with values between 0 to 2
-    ///   - start:   starting point
-    ///   - diag:    diagonal movements allowed
     init(map: [[Int]], start: CGPoint, diag: Bool) {
-        open = []
-        closed = []
+        open = Heap<Node>(sort: <)
+        closed = Set<Node>()
         path = []
         self.map = map
         now = Node(parent: nil, position: start, g: 0, h: 0)
         self.start = start
         end = CGPoint()
         self.diag = diag
+        openSet = Set<Node>()
         // If the source is out of range.
         if !isValid(start.xI, start.yI) {
             print("Source is invalid")
@@ -80,15 +82,15 @@ class AStar {
         }
 
         self.end = end
-        closed.append(now)
+        closed.insert(now)
         addNeigborsToOpenList()
         while now.position.x != end.x || now.position.y != end.y {
-            if open.isEmpty { // Nothing to examine.
+            if open.isEmpty { // Nothing to examine
                 return nil
             }
-            now = open[0]
-            open.remove(at: 0)
-            closed.append(now)
+            now = open.remove(at: 0)!
+            openSet.remove(now)
+            closed.insert(now)
             addNeigborsToOpenList()
         }
         path.insert(now, at: 0)
@@ -100,18 +102,13 @@ class AStar {
         return path
     }
 
-    /// Looks in a given List<> for a node.
-    private func findNeighborInList(_ array: [Node], _ node: Node) -> Bool {
-        return (array.first { $0.position.x == node.position.x && $0.position.y == node.position.y } != nil)
-    }
-
-    /// Calulate distance between this.now and xend/yend.
-    /// -@return (int) distance.
+    /// Calulate distance between this.now and xend/yend
+    /// -@return (int) distance
     private func distance(_ point: CGPoint) -> Double {
-        if diag { // if diagonal movement is alloweed.
-            return hypot((now.position.xD + point.xD) - end.xD, (now.position.yD + point.yD) - end.yD) // return hypothenuse.
+        if diag { // if diagonal movement is alloweed
+            return sqrt(pow((now.position.xD + point.xD) - end.xD, 2) + pow((now.position.yD + point.yD) - end.yD, 2)) // return hypothenuse
         } else {
-            return abs((now.position.xD + point.xD) - end.xD) - abs((now.position.xD + point.xD) - end.yD) // else return "Manhattan distance.
+            return abs((now.position.xD + point.xD) - end.xD) + abs((now.position.yD + point.yD) - end.yD) // else return "Manhattan distance
         }
     }
 
@@ -120,28 +117,29 @@ class AStar {
         for x in -1 ... 1 {
             for y in -1 ... 1 {
                 if !diag && x != 0 && y != 0 {
-                    continue // skip if diagonal movement is not allowed.
+                    continue // skip if diagonal movement is not allowed
                 }
-                node = Node(parent: now, position: CGPoint(x: now.position.xI + x, y: now.position.yI + y), g: now.g + Double(y), h: distance(CGPoint(x: x, y: y)))
+                node = Node(parent: now, position: CGPoint(x: now.position.xI + x, y: now.position.yI + y), g: now.g, h: distance(CGPoint(x: x, y: y)))
 
                 if x != 0 || y != 0,
-                    now.position.xI + x >= 0, now.position.xI + x < map[0].count, // check maze boundaries.
+                    now.position.xI + x >= 0, now.position.xI + x < map[0].count, // check maze boundaries
                     now.position.yI + y >= 0, now.position.yI + y < map.count,
-                    map[now.position.yI + y][now.position.xI + x] != 1, // check if square is walkable.
-                    !findNeighborInList(open, node), !findNeighborInList(closed, node) {
-                    node.g = node.parent!.g + 1 // Horizontal/vertical cost = 1.0.
-                    node.g += Double(map[now.position.yI + y][now.position.xI + x]) // add movement cost for this square.
-                    node.g += map[now.position.yI + y][now.position.xI + x] == 2 ? 10 : 0
-                    // diagonal cost = sqrt(hor_cost² + vert_cost²).
-                    // in this example the cost would be 12.2 instead of 11.
+                    map[now.position.xI + x][now.position.yI + y] != 1, // check if square is walkable
+                    !closed.contains(node), !openSet.contains(node) {
+                    node.g = node.parent!.g + 1 // Horizontal/vertical cost = 1.0
+                    node.g += Double(map[now.position.xI + x][now.position.yI + y]) // add movement cost for this square
+                    node.g += map[now.position.xI + x][now.position.yI + y] == 2 ? 3 : 0
+                    // diagonal cost = sqrt(hor_cost² + vert_cost²)
+                    // in this example the cost would be 12.2 instead of 11
                     if diag, x != 0, y != 0 {
-                        node.g += 0.4 // Diagonal movement cost = 1.4.
+                        node.g += 0.4 // Diagonal movement cost = 1.4
                     }
-                    open.append(node)
+
+                    open.insert(value: node)
+                    openSet.insert(node)
                 }
             }
         }
-        open.sort()
     }
 
     private func isValid(_ row: Int, _ col: Int) -> Bool {

@@ -54,7 +54,7 @@ class VoxelMap {
     /// Description
     /// - Parameter vector: vector description
     func addVoxel(_ vector: vector_float3) {
-        DispatchQueue.main.async {
+        queue.async {
             let voxel = Voxel(vector: self.normaliseVector(vector), scale: vector_float3(self.gridSize, self.gridSize, self.gridSize), density: 1)
             if self.voxelSet.contains(voxel) {
                 guard let newVoxel = self.voxelSet.remove(voxel) else { return }
@@ -75,18 +75,22 @@ class VoxelMap {
     /// Description
     /// - Parameter plane: plane description
     func updateGroundPlane(_ plane: ARPlaneAnchor) {
-        groundHeight = min(plane.transform.columns.3.y, groundHeight ?? Float(Int.max))
+        queue.async {
+            self.groundHeight = min(plane.transform.columns.3.y, self.groundHeight ?? Float(Int.max))
+        }
     }
 
     /// Description
-    func getPointCloudNode() -> SCNNode {
-        let points = voxelSet.map { SIMD3<Float>($0.Position) }
+    func getPointCloudNode(completion: @escaping (SCNNode) -> Void) {
+        queue.async {
+            let points = self.voxelSet.map { SIMD3<Float>($0.Position) }
 
-        let featurePointsGeometry = pointCloudGeometry(for: points)
+            let featurePointsGeometry = self.pointCloudGeometry(for: points)
 
-        let featurePointsNode = SCNNode(geometry: featurePointsGeometry)
+            let featurePointsNode = SCNNode(geometry: featurePointsGeometry)
 
-        return featurePointsNode
+            completion(featurePointsNode)
+        }
     }
 
     /// Description
@@ -94,14 +98,13 @@ class VoxelMap {
     ///   - start: start description
     ///   - end: end description
     func getPath(start: SCNVector3, end: SCNVector3) {
-        setMinMax()
-        guard let map = makeGraph() else { return }
-        guard let xmax = xMax else { return }
-        guard let zmax = zMax else { return }
-        let _start = indaxToCGPoint(start)
-        let _end = indaxToCGPoint(end)
-
         queue.async {
+            self.setMinMax()
+            guard let map = self.makeGraph() else { return }
+            guard let xmax = self.xMax else { return }
+            guard let zmax = self.zMax else { return }
+            let _start = self.indaxToCGPoint(start)
+            let _end = self.indaxToCGPoint(end)
             let aStar = AStar(map: map, start: _start, diag: true)
             let path = aStar.findPathTo(end: _end)?.map({ (n) -> vector_float3 in
 
@@ -109,7 +112,7 @@ class VoxelMap {
                 let zv = zmax + Float(n.position.y)
                 let x = xv * (1.0 / self.gridSize!)
                 let z = zv * (1.0 / self.gridSize!)
-                return vector_float3(x: x, y: (self.groundHeight ?? -1) + 0.4, z: z)
+                return vector_float3(x: z, y: (self.groundHeight ?? -1) + 0.4, z: x)
             })
 
             DispatchQueue.main.async {
@@ -120,29 +123,33 @@ class VoxelMap {
 
     /// Description
     /// - Parameter redrawAll: redrawAll description
-    func getVoxelMap(redrawAll: Bool) -> [SCNNode] {
-        var voxelNodes = [SCNNode]()
-        let voxels = voxelSet
-        for voxel in voxels {
-            if voxel.density < noiseLevel { continue }
-            if !redrawAll, alreadyRenderedVoxels.contains(voxel) { continue } // To increase rendering efficiency.
-            print(voxel.density)
-            let position = voxel.Position
-            let box = SCNBox(width: CGFloat(1 / voxel.scale.x), height: CGFloat(1 / voxel.scale.y), length: CGFloat(1 / voxel.scale.z), chamferRadius: 0)
-            box.firstMaterial?.diffuse.contents = position.y < (groundHeight ?? -10) + 0.1 ? UIColor.green :
-                UIColor(red: CGFloat(abs(position.y * 800)) / 255, green: 0.2, blue: 0.2, alpha: 1)
-            let voxelNode = SCNNode(geometry: box)
-            voxelNode.position = SCNVector3(position)
-            voxelNodes.append(voxelNode)
-            alreadyRenderedVoxels.insert(voxel)
+    func getVoxelMap(redrawAll: Bool, completion: @escaping ([SCNNode]) -> Void) {
+        queue.async {
+            var voxelNodes = [SCNNode]()
+            let voxels = self.voxelSet
+            for voxel in voxels {
+                if voxel.density < self.noiseLevel { continue }
+                if !redrawAll, self.alreadyRenderedVoxels.contains(voxel) { continue } // To increase rendering efficiency.
+                print(voxel.density)
+                let position = voxel.Position
+                let box = SCNBox(width: CGFloat(1 / voxel.scale.x), height: CGFloat(1 / voxel.scale.y), length: CGFloat(1 / voxel.scale.z), chamferRadius: 0)
+                box.firstMaterial?.diffuse.contents = position.y < (self.groundHeight ?? -10) + 0.3 ? UIColor.green :
+                    UIColor(red: CGFloat(abs(position.y * 800)) / 255, green: 0.2, blue: 0.2, alpha: 1)
+                let voxelNode = SCNNode(geometry: box)
+                voxelNode.position = SCNVector3(position)
+                voxelNodes.append(voxelNode)
+                self.alreadyRenderedVoxels.insert(voxel)
+            }
+            completion(voxelNodes)
         }
-        return voxelNodes
     }
 
     /// Description
     func getObstacleGraphDebug() {
-        guard let matrix = makeGraph() else { return }
-        voxelMapDelegate?.updateDebugView(MapVisualisation(map: matrix))
+        queue.async {
+            guard let matrix = self.makeGraph() else { return }
+            self.voxelMapDelegate?.updateDebugView(MapVisualisation(map: matrix))
+        }
     }
 
     /// Description
@@ -150,12 +157,13 @@ class VoxelMap {
     ///   - start: start description
     ///   - end: end description
     func getObstacleGraphAndPathDebug(start: SCNVector3, end: SCNVector3) {
-        setMinMax()
-        guard var map = makeGraph() else { return }
-        let _start = indaxToCGPoint(start)
-        let _end = indaxToCGPoint(end)
         queue.async {
-            let aStar = AStar(map: map, start: _start, diag: true)
+            self.setMinMax()
+            guard var map = self.makeGraph() else { return }
+            let _start = self.indaxToCGPoint(start)
+            let _end = self.indaxToCGPoint(end)
+
+            let aStar = AStar(map: map, start: _start, diag: false)
             guard let path = aStar.findPathTo(end: _end) else { return }
             path.forEach { map[$0.position.xI][$0.position.yI] = 3 }
             DispatchQueue.main.async {
@@ -169,8 +177,8 @@ class VoxelMap {
     private func indaxToCGPoint(_ vector: SCNVector3) -> CGPoint {
         guard let xmax = xMax else { return CGPoint() }
         guard let zmax = zMax else { return CGPoint() }
-        return CGPoint(x: Int((xmax - vector.x) / (1.0 / gridSize)),
-                       y: Int((zmax - vector.z) / (1.0 / gridSize)))
+        return CGPoint(x: Int(((xmax - vector.x) * gridSize) + 1),
+                       y: Int(((zmax - vector.z) * gridSize) + 1 ))
     }
 
     private func setMinMax() {
@@ -190,14 +198,15 @@ class VoxelMap {
         guard let zmax = zMax else { return nil }
         guard let zmin = zMin else { return nil }
 
-        let rows = Int((xmax - xmin) / (1.0 / gridSize))
-        let columns = Int((zmax - zmin) / (1.0 / gridSize))
+        let rows = Int((xmax - xmin) * gridSize) + 10
+        let columns = Int((zmax - zmin) * gridSize) + 10
+
         var graph = Array(repeating: Array(repeating: 2, count: columns + 2), count: rows + 2)
         let voxels = voxelSet.map { $0 }
         voxels.forEach { voxel in
-            let row = Int((xmax - voxel.Position.x) / (1.0 / gridSize))
-            let column = Int((zmax - voxel.Position.z) / (1.0 / gridSize))
-            if voxel.Position.y < (groundHeight ?? -10) + 0.4 {
+            let row = Int((xmax - voxel.Position.x) * gridSize) + 1
+            let column = Int((zmax - voxel.Position.z) * gridSize) + 1
+            if voxel.Position.y < (groundHeight ?? -10) + 0.3 {
                 graph[row][column] = 0
             } else if voxel.density > noiseLevel {
                 graph[row][column] = 1

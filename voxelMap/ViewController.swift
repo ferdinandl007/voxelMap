@@ -23,6 +23,8 @@ class ViewController: UIViewController {
 
     var voxleRootNode = SCNNode()
 
+    var timer = Timer()
+
     @IBOutlet var sliderLabel: UILabel!
     @IBOutlet var debugimage: UIView!
     @IBOutlet var spinner: UIActivityIndicatorView!
@@ -125,8 +127,17 @@ class ViewController: UIViewController {
         augmentedRealitySession.run(configuration)
     }
 
+    @IBAction func makePath(_: Any) {
+        let transform = augmentedRealityView.pointOfView!.transform
+        let cam = SCNVector3(transform.m41, transform.m42, transform.m43)
+        voxelMap.getPath(start: cam, end: end)
+        spinner.isHidden = false
+        spinner.startAnimating()
+    }
+
     @IBAction func makeVoxels(_: Any) {
 //        voxelMap.getVoxelMap().forEach { self.augmentedRealityView.scene.rootNode.addChildNode($0) }
+
         let transform = augmentedRealityView.pointOfView!.transform
         let cam = SCNVector3(transform.m41, transform.m42, transform.m43)
         voxelMap.getObstacleGraphAndPathDebug(start: cam, end: end)
@@ -135,7 +146,9 @@ class ViewController: UIViewController {
     }
 
     @IBAction func goToMap(_: Any) {
-        voxelMap.getVoxelMap(redrawAll: true).forEach { voxleRootNode.addChildNode($0) }
+        voxelMap.getVoxelMap(redrawAll: true) { v in
+            v.forEach { self.voxleRootNode.addChildNode($0) }
+        }
         augmentedRealityView.scene.rootNode.enumerateChildNodes { node, _ in
             if node.name == "Plane" {
                 node.removeFromParentNode()
@@ -193,7 +206,17 @@ extension ViewController: ARSCNViewDelegate {
 }
 
 extension ViewController: VoxelMapDelegate {
-    func getPathupdate(_: [vector_float3]?) {}
+    func getPathupdate(_ path: [vector_float3]?) {
+        path?.forEach({ p in
+            let box = SCNBox(width: CGFloat(0.1), height: CGFloat(0.1), length: CGFloat(0.1), chamferRadius: 0.1)
+            box.firstMaterial?.diffuse.contents = UIColor.red
+            let node = SCNNode(geometry: box)
+            node.position = SCNVector3(p)
+            self.augmentedRealityView.scene.rootNode.addChildNode(node)
+        })
+        spinner.isHidden = true
+        spinner.stopAnimating()
+    }
 
     func updateDebugView(_ View: UIView) {
         debugimage.addSubview(View)

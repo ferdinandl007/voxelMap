@@ -18,12 +18,13 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
                                 <rect key="frame" x="0.0" y="76" width="414" height="515"/>
                             </arscnView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lth-qd-Dfl">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lth-qd-Dfl">
                                 <rect key="frame" x="369" y="44" width="25" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="4cE-qk-k16"/>
                                     <constraint firstAttribute="height" constant="24" id="9yL-3T-1TO"/>
                                 </constraints>
+                                <state key="normal" image="map" catalog="system"/>
                                 <connections>
                                     <action selector="goToMap:" destination="BV1-FR-VrT" eventType="touchUpInside" id="7lY-yd-BRr"/>
                                 </connections>
@@ -60,9 +61,9 @@
                                     <constraint firstAttribute="width" constant="65" id="XZM-oF-3nf"/>
                                     <constraint firstAttribute="height" constant="50" id="dQX-21-DFj"/>
                                 </constraints>
-                                <state key="normal" image="repeat" catalog="system"/>
+                                <state key="normal" image="mappin.and.ellipse" catalog="system"/>
                                 <connections>
-                                    <action selector="makeVoxels:" destination="BV1-FR-VrT" eventType="touchUpInside" id="cgy-xy-w7r"/>
+                                    <action selector="makePath:" destination="BV1-FR-VrT" eventType="touchUpInside" id="tHV-4d-GjT"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="4gN-nD-hm5">
@@ -72,6 +73,17 @@
                                     <constraint firstAttribute="height" constant="297" id="8OX-S3-6z8"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tir-hT-VcN">
+                                <rect key="frame" x="349" y="134" width="65" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="aDO-ki-W1r"/>
+                                    <constraint firstAttribute="height" constant="50" id="yWJ-CW-z6Q"/>
+                                </constraints>
+                                <state key="normal" image="mappin" catalog="system"/>
+                                <connections>
+                                    <action selector="makeVoxels:" destination="BV1-FR-VrT" eventType="touchUpInside" id="fiK-yB-RSp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -79,6 +91,7 @@
                             <constraint firstAttribute="trailing" secondItem="iwQ-6v-fMU" secondAttribute="trailing" constant="40" id="5lt-lF-ECX"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="lth-qd-Dfl" secondAttribute="trailing" constant="20" id="7N5-hw-RrL"/>
                             <constraint firstItem="o1s-KP-INU" firstAttribute="top" secondItem="Oga-eT-QnB" secondAttribute="bottom" constant="3" id="8sN-09-aJb"/>
+                            <constraint firstItem="Tir-hT-VcN" firstAttribute="top" secondItem="o1s-KP-INU" secondAttribute="bottom" constant="8" id="9ke-uW-3GW"/>
                             <constraint firstItem="lth-qd-Dfl" firstAttribute="top" secondItem="fQZ-KI-GVf" secondAttribute="top" id="OV3-yW-Khc"/>
                             <constraint firstItem="Oga-eT-QnB" firstAttribute="top" secondItem="fQZ-KI-GVf" secondAttribute="top" id="SWW-3V-fSO"/>
                             <constraint firstItem="iwQ-6v-fMU" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" constant="11" id="SaY-la-pgx"/>
@@ -91,6 +104,7 @@
                             <constraint firstItem="lth-qd-Dfl" firstAttribute="leading" secondItem="Oga-eT-QnB" secondAttribute="trailing" constant="8" id="g5b-D9-1j7"/>
                             <constraint firstItem="Oga-eT-QnB" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="22" id="gv5-na-e3h"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="Oga-eT-QnB" secondAttribute="bottom" constant="3" id="kGJ-51-0Kj"/>
+                            <constraint firstItem="Tir-hT-VcN" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="sDf-GO-ETC"/>
                             <constraint firstAttribute="bottom" secondItem="4gN-nD-hm5" secondAttribute="bottom" id="ypg-lq-uYP"/>
                             <constraint firstItem="6KY-1n-BLg" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" constant="15" id="ytU-Mr-5T5"/>
                         </constraints>
@@ -145,6 +159,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="repeat" catalog="system" width="64" height="48"/>
+        <image name="map" catalog="system" width="64" height="56"/>
+        <image name="mappin" catalog="system" width="52" height="64"/>
+        <image name="mappin.and.ellipse" catalog="system" width="58" height="64"/>
     </resources>
 </document>

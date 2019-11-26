@@ -10,6 +10,7 @@
 		CF03E758235DEBC1001FFD4B /* VoxelMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03E757235DEBC1001FFD4B /* VoxelMap.swift */; };
 		CF1E2C9D236632A100F469DE /* Assets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = CF1E2C96236630F500F469DE /* Assets.scnassets */; };
 		CF1E2C9F2366415400F469DE /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1E2C9E2366415400F469DE /* Matrix.swift */; };
+		CF1F62EB23884B2700207CB2 /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1F62EA23884B2700207CB2 /* Heap.swift */; };
 		CF2DF15823609D860056432D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2DF15723609D860056432D /* MapViewController.swift */; };
 		CF6B4313235E032A00F85C77 /* Voxel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B4312235E032900F85C77 /* Voxel.swift */; };
 		CF6B4315235E224500F85C77 /* testVoxelMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B4314235E224500F85C77 /* testVoxelMap.swift */; };
@@ -54,6 +55,7 @@
 		CF03E757235DEBC1001FFD4B /* VoxelMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoxelMap.swift; sourceTree = "<group>"; };
 		CF1E2C96236630F500F469DE /* Assets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Assets.scnassets; sourceTree = "<group>"; };
 		CF1E2C9E2366415400F469DE /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
+		CF1F62EA23884B2700207CB2 /* Heap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
 		CF2DF15723609D860056432D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		CF6B4312235E032900F85C77 /* Voxel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voxel.swift; sourceTree = "<group>"; };
 		CF6B4314235E224500F85C77 /* testVoxelMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testVoxelMap.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		CFB4630B236628970036BDD0 /* VoxelMap_SDK */ = {
 			isa = PBXGroup;
 			children = (
+				CF1F62EA23884B2700207CB2 /* Heap.swift */,
 				CF03E757235DEBC1001FFD4B /* VoxelMap.swift */,
 				CFA06E602379EA9E007F2F1B /* AStar.swift */,
 				CF1E2C9E2366415400F469DE /* Matrix.swift */,
@@ -353,6 +356,7 @@
 				CFD63BA9235DC5A1006DF3EA /* AppDelegate.swift in Sources */,
 				CF7451D52382E77900B8D5B4 /* MMSlidingButton.swift in Sources */,
 				CF03E758235DEBC1001FFD4B /* VoxelMap.swift in Sources */,
+				CF1F62EB23884B2700207CB2 /* Heap.swift in Sources */,
 				CF6B4313235E032A00F85C77 /* Voxel.swift in Sources */,
 				CF75DDA62379C53B005E8D19 /* MapVisualisation.swift in Sources */,
 				CF7451D72382E77900B8D5B4 /* SCNVector4+Extensions.swift in Sources */,

@@ -15,7 +15,8 @@ private class Cell: Hashable {
     var neighbours: [Cell]
 
     func hash(into hasher: inout Hasher) {
-        hasher.combine(x + y * 1000)
+        hasher.combine(y * 499)
+        hasher.combine(x * 937)
     }
 
     init(x: Int, y: Int) {
