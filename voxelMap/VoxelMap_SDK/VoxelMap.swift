@@ -177,8 +177,9 @@ class VoxelMap {
     private func indaxToCGPoint(_ vector: SCNVector3) -> CGPoint {
         guard let xmax = xMax else { return CGPoint() }
         guard let zmax = zMax else { return CGPoint() }
-        return CGPoint(x: Int(((xmax - vector.x) * gridSize) + 1),
-                       y: Int(((zmax - vector.z) * gridSize) + 1 ))
+        let x = Int(((xmax - vector.x) * gridSize) + 1)
+        let y = Int(((zmax - vector.z) * gridSize) + 1)
+        return CGPoint(x: x, y: y)
     }
 
     private func setMinMax() {
