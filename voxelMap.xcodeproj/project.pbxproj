@@ -12,6 +12,8 @@
 		CF1E2C9F2366415400F469DE /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1E2C9E2366415400F469DE /* Matrix.swift */; };
 		CF1F62EB23884B2700207CB2 /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1F62EA23884B2700207CB2 /* Heap.swift */; };
 		CF2DF15823609D860056432D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2DF15723609D860056432D /* MapViewController.swift */; };
+		CF30C72B239E885000C4034B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF30C72A239E885000C4034B /* Extensions.swift */; };
+		CF30C72E239E898100C4034B /* Mapfilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF30C72D239E898100C4034B /* Mapfilters.swift */; };
 		CF6B4313235E032A00F85C77 /* Voxel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B4312235E032900F85C77 /* Voxel.swift */; };
 		CF6B4315235E224500F85C77 /* testVoxelMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B4314235E224500F85C77 /* testVoxelMap.swift */; };
 		CF7451CC2382E59E00B8D5B4 /* pin.scn in Resources */ = {isa = PBXBuildFile; fileRef = CF7451CB2382E59E00B8D5B4 /* pin.scn */; };
@@ -57,6 +59,8 @@
 		CF1E2C9E2366415400F469DE /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		CF1F62EA23884B2700207CB2 /* Heap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
 		CF2DF15723609D860056432D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		CF30C72A239E885000C4034B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		CF30C72D239E898100C4034B /* Mapfilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapfilters.swift; sourceTree = "<group>"; };
 		CF6B4312235E032900F85C77 /* Voxel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voxel.swift; sourceTree = "<group>"; };
 		CF6B4314235E224500F85C77 /* testVoxelMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testVoxelMap.swift; sourceTree = "<group>"; };
 		CF7451CB2382E59E00B8D5B4 /* pin.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = pin.scn; sourceTree = "<group>"; };
@@ -110,7 +114,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CF7451CD2382E77800B8D5B4 /* Utils */ = {
+		CF30C72C239E88C800C4034B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				CF7451CE2382E77800B8D5B4 /* SCNVector3+Extensions.swift */,
@@ -125,12 +129,15 @@
 		CFB4630B236628970036BDD0 /* VoxelMap_SDK */ = {
 			isa = PBXGroup;
 			children = (
+				CF30C72C239E88C800C4034B /* Utils */,
 				CF1F62EA23884B2700207CB2 /* Heap.swift */,
 				CF03E757235DEBC1001FFD4B /* VoxelMap.swift */,
 				CFA06E602379EA9E007F2F1B /* AStar.swift */,
 				CF1E2C9E2366415400F469DE /* Matrix.swift */,
 				CF6B4312235E032900F85C77 /* Voxel.swift */,
 				CF75DDA52379C53B005E8D19 /* MapVisualisation.swift */,
+				CF30C72A239E885000C4034B /* Extensions.swift */,
+				CF30C72D239E898100C4034B /* Mapfilters.swift */,
 			);
 			path = VoxelMap_SDK;
 			sourceTree = "<group>";
@@ -161,7 +168,6 @@
 				CFD63BA8235DC5A1006DF3EA /* AppDelegate.swift */,
 				CFD63BAC235DC5A1006DF3EA /* ViewController.swift */,
 				CFB46309236626F00036BDD0 /* Plane.swift */,
-				CF7451CD2382E77800B8D5B4 /* Utils */,
 				CFB4630B236628970036BDD0 /* VoxelMap_SDK */,
 				CF2DF15723609D860056432D /* MapViewController.swift */,
 				CFD63BAE235DC5A1006DF3EA /* Main.storyboard */,
@@ -361,6 +367,8 @@
 				CF75DDA62379C53B005E8D19 /* MapVisualisation.swift in Sources */,
 				CF7451D72382E77900B8D5B4 /* SCNVector4+Extensions.swift in Sources */,
 				CFB4630A236626F00036BDD0 /* Plane.swift in Sources */,
+				CF30C72B239E885000C4034B /* Extensions.swift in Sources */,
+				CF30C72E239E898100C4034B /* Mapfilters.swift in Sources */,
 				CF7451D62382E77900B8D5B4 /* SKLine.swift in Sources */,
 				CF2DF15823609D860056432D /* MapViewController.swift in Sources */,
 				CFA06E612379EA9E007F2F1B /* AStar.swift in Sources */,

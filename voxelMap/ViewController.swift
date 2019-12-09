@@ -149,11 +149,6 @@ class ViewController: UIViewController {
         voxelMap.getVoxelMap(redrawAll: true) { v in
             v.forEach { self.voxleRootNode.addChildNode($0) }
         }
-        augmentedRealityView.scene.rootNode.enumerateChildNodes { node, _ in
-            if node.name == "Plane" {
-                node.removeFromParentNode()
-            }
-        }
 
         let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         if let viewController = mainStoryboard.instantiateViewController(withIdentifier: "Map") as? MapViewController {
@@ -207,13 +202,21 @@ extension ViewController: ARSCNViewDelegate {
 
 extension ViewController: VoxelMapDelegate {
     func getPathupdate(_ path: [vector_float3]?) {
-        path?.forEach({ p in
-            let box = SCNBox(width: CGFloat(0.1), height: CGFloat(0.1), length: CGFloat(0.1), chamferRadius: 0.1)
-            box.firstMaterial?.diffuse.contents = UIColor.red
-            let node = SCNNode(geometry: box)
-            node.position = SCNVector3(p)
-            self.augmentedRealityView.scene.rootNode.addChildNode(node)
-        })
+        augmentedRealityView.scene.rootNode.enumerateChildNodes { node, _ in
+            if node.name == "path" {
+                node.removeFromParentNode()
+            }
+        }
+        let box = SCNBox(width: CGFloat(0.05), height: CGFloat(0.05), length: CGFloat(0.05), chamferRadius: 0.1)
+        box.firstMaterial?.diffuse.contents = UIColor.red
+        let node = SCNNode(geometry: box)
+        node.name = "path"
+
+        path?.forEach { p in
+            let pathNode = node.clone()
+            pathNode.position = SCNVector3(p)
+            self.augmentedRealityView.scene.rootNode.addChildNode(pathNode)
+        }
         spinner.isHidden = true
         spinner.stopAnimating()
     }

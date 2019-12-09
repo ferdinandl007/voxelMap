@@ -32,7 +32,7 @@ private func == (lhs: Cell, rhs: Cell) -> Bool {
 }
 
 private enum State {
-    case free, blockt, notKnown, path
+    case free, blockt, notKnown, path, error
 }
 
 // the Game of Life 'World', contains an array of cells
@@ -55,6 +55,10 @@ private class World {
                     cell.state = .blockt
                 case 2:
                     cell.state = .notKnown
+                case 3:
+                    cell.state = .path
+                case 4:
+                    cell.state = .error
                 default:
                     cell.state = .path
                 }
@@ -83,13 +87,15 @@ public class MapVisualisation: UIView {
         func fillColorForCell(state: State) -> UIColor {
             switch state {
             case .free:
-                return UIColor.white
+                return UIColor.lightGray
             case .blockt:
                 return UIColor.black
             case .notKnown:
-                return UIColor.lightGray
-            default:
+                return UIColor.white
+            case .error:
                 return UIColor.red
+            default:
+                return UIColor.green
             }
         }
 

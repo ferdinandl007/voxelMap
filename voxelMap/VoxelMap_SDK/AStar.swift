@@ -122,8 +122,8 @@ class AStar {
                 node = Node(parent: now, position: CGPoint(x: now.position.xI + x, y: now.position.yI + y), g: now.g, h: distance(CGPoint(x: x, y: y)))
 
                 if x != 0 || y != 0,
-                    now.position.xI + x >= 0, now.position.xI + x < map[0].count, // check maze boundaries
-                    now.position.yI + y >= 0, now.position.yI + y < map.count,
+                    now.position.xI + x >= 0, now.position.xI + x < map.count, // check maze boundaries x
+                    now.position.yI + y >= 0, now.position.yI + y < map[0].count,
                     map[now.position.xI + x][now.position.yI + y] != 1, // check if square is walkable
                     !closed.contains(node), !openSet.contains(node) {
                     node.g = node.parent!.g + 1 // Horizontal/vertical cost = 1.0
@@ -146,11 +146,4 @@ class AStar {
         return (row >= 0) && (row < map.count)
             && (col >= 0) && (col < map.first!.count)
     }
-}
-
-extension CGPoint {
-    var xD: Double { return Double(x) }
-    var yD: Double { return Double(y) }
-    var xI: Int { return Int(x) }
-    var yI: Int { return Int(y) }
 }

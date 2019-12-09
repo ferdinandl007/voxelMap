@@ -106,14 +106,15 @@ class VoxelMap {
             let _start = self.indaxToCGPoint(start)
             let _end = self.indaxToCGPoint(end)
             let aStar = AStar(map: map, start: _start, diag: true)
-            let path = aStar.findPathTo(end: _end)?.map({ (n) -> vector_float3 in
+            let path = aStar.findPathTo(end: _end)?.map { (n) -> vector_float3 in
 
-                let xv = xmax + Float(n.position.x)
-                let zv = zmax + Float(n.position.y)
-                let x = xv * (1.0 / self.gridSize!)
-                let z = zv * (1.0 / self.gridSize!)
-                return vector_float3(x: z, y: (self.groundHeight ?? -1) + 0.4, z: x)
-            })
+                let r = Float(n.position.xD)
+                let c = Float(n.position.yD)
+                let x = xmax - ((r - 1) / self.gridSize)
+                let z = zmax - ((c - 1) / self.gridSize)
+
+                return vector_float3(x: x, y: (self.groundHeight ?? -1) + 0.4, z: z)
+            }
 
             DispatchQueue.main.async {
                 self.voxelMapDelegate?.getPathupdate(path)
@@ -165,7 +166,7 @@ class VoxelMap {
 
             let aStar = AStar(map: map, start: _start, diag: false)
             guard let path = aStar.findPathTo(end: _end) else { return }
-            path.forEach { map[$0.position.xI][$0.position.yI] = 3 }
+            path.forEach { map[$0.position.xI][$0.position.yI] = map[$0.position.xI][$0.position.yI] == 1 ? 4 : 3 }
             DispatchQueue.main.async {
                 self.voxelMapDelegate?.updateDebugView(MapVisualisation(map: map))
             }
@@ -199,8 +200,8 @@ class VoxelMap {
         guard let zmax = zMax else { return nil }
         guard let zmin = zMin else { return nil }
 
-        let rows = Int((xmax - xmin) * gridSize) + 10
-        let columns = Int((zmax - zmin) * gridSize) + 10
+        let rows = Int((xmax - xmin) * gridSize) + 10 // x
+        let columns = Int((zmax - zmin) * gridSize) + 10 // y
 
         var graph = Array(repeating: Array(repeating: 2, count: columns + 2), count: rows + 2)
         let voxels = voxelSet.map { $0 }
@@ -213,7 +214,8 @@ class VoxelMap {
                 graph[row][column] = 1
             }
         }
-
+//        graph = Mapfilters.mapRoasting(graph, kernel: CGSize(width: 2, height: 2))!
+        print(graph)
         return graph
     }
 
