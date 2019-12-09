@@ -7,7 +7,9 @@
 //
 
 import ARKit
+import ARNavigationKit
 import UIKit
+
 class ViewController: UIViewController {
     @IBOutlet var augmentedRealityView: ARSCNView!
 
@@ -15,7 +17,7 @@ class ViewController: UIViewController {
 
     let augmentedRealitySession = ARSession()
 
-    let voxelMap = VoxelMap(VoxelGridCellSize: 0.1)
+    let voxelMap = ARNavigationKit(VoxelGridCellSize: 0.1)
 
     var end = SCNVector3()
 
@@ -35,7 +37,7 @@ class ViewController: UIViewController {
         tapRecognizer.numberOfTapsRequired = 2
         view.addGestureRecognizer(tapRecognizer)
         setupARSession()
-        voxelMap.voxelMapDelegate = self
+        voxelMap.arNavigationKitDelegate = self
         spinner.isHidden = true
     }
 
@@ -200,7 +202,7 @@ extension ViewController: ARSCNViewDelegate {
     }
 }
 
-extension ViewController: VoxelMapDelegate {
+extension ViewController: ARNavigationKitDelegate {
     func getPathupdate(_ path: [vector_float3]?) {
         augmentedRealityView.scene.rootNode.enumerateChildNodes { node, _ in
             if node.name == "path" {
