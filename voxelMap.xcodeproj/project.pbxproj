@@ -3,28 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CF03E758235DEBC1001FFD4B /* VoxelMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF03E757235DEBC1001FFD4B /* VoxelMap.swift */; };
+		225AE033E357ABB79E431067 /* Pods_voxelMap_voxelMapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7C2307F42C1A0C16DF9E15D /* Pods_voxelMap_voxelMapUITests.framework */; };
+		7C2765649F9666D9F7B91C26 /* Pods_voxelMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A0E6D67C2424F4B07F01AE /* Pods_voxelMap.framework */; };
 		CF1E2C9D236632A100F469DE /* Assets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = CF1E2C96236630F500F469DE /* Assets.scnassets */; };
-		CF1E2C9F2366415400F469DE /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1E2C9E2366415400F469DE /* Matrix.swift */; };
-		CF1F62EB23884B2700207CB2 /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1F62EA23884B2700207CB2 /* Heap.swift */; };
 		CF2DF15823609D860056432D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2DF15723609D860056432D /* MapViewController.swift */; };
-		CF30C72B239E885000C4034B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF30C72A239E885000C4034B /* Extensions.swift */; };
-		CF30C72E239E898100C4034B /* Mapfilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF30C72D239E898100C4034B /* Mapfilters.swift */; };
-		CF6B4313235E032A00F85C77 /* Voxel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B4312235E032900F85C77 /* Voxel.swift */; };
 		CF6B4315235E224500F85C77 /* testVoxelMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B4314235E224500F85C77 /* testVoxelMap.swift */; };
+		CF6DB7AB23D9E102006C4E3C /* SCNVector3+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6DB7A623D9E102006C4E3C /* SCNVector3+Extensions.swift */; };
+		CF6DB7AD23D9E102006C4E3C /* MMSlidingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6DB7A823D9E102006C4E3C /* MMSlidingButton.swift */; };
+		CF6DB7AE23D9E102006C4E3C /* SKLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6DB7A923D9E102006C4E3C /* SKLine.swift */; };
+		CF6DB7AF23D9E102006C4E3C /* SCNVector4+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6DB7AA23D9E102006C4E3C /* SCNVector4+Extensions.swift */; };
 		CF7451CC2382E59E00B8D5B4 /* pin.scn in Resources */ = {isa = PBXBuildFile; fileRef = CF7451CB2382E59E00B8D5B4 /* pin.scn */; };
-		CF7451D32382E77900B8D5B4 /* SCNVector3+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7451CE2382E77800B8D5B4 /* SCNVector3+Extensions.swift */; };
-		CF7451D42382E77900B8D5B4 /* SCN+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7451CF2382E77800B8D5B4 /* SCN+Codable.swift */; };
-		CF7451D52382E77900B8D5B4 /* MMSlidingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7451D02382E77800B8D5B4 /* MMSlidingButton.swift */; };
-		CF7451D62382E77900B8D5B4 /* SKLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7451D12382E77800B8D5B4 /* SKLine.swift */; };
-		CF7451D72382E77900B8D5B4 /* SCNVector4+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7451D22382E77800B8D5B4 /* SCNVector4+Extensions.swift */; };
-		CF75DDA62379C53B005E8D19 /* MapVisualisation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF75DDA52379C53B005E8D19 /* MapVisualisation.swift */; };
 		CF96BD01235F3FD300D6E377 /* testVoxel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF96BD00235F3FD300D6E377 /* testVoxel.swift */; };
-		CFA06E612379EA9E007F2F1B /* AStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA06E602379EA9E007F2F1B /* AStar.swift */; };
 		CFB4630A236626F00036BDD0 /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB46309236626F00036BDD0 /* Plane.swift */; };
 		CFD63BA9235DC5A1006DF3EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD63BA8235DC5A1006DF3EA /* AppDelegate.swift */; };
 		CFD63BAB235DC5A1006DF3EA /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = CFD63BAA235DC5A1006DF3EA /* art.scnassets */; };
@@ -34,6 +27,7 @@
 		CFD63BB5235DC5A3006DF3EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFD63BB3235DC5A3006DF3EA /* LaunchScreen.storyboard */; };
 		CFD63BC0235DC5A3006DF3EA /* voxelMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD63BBF235DC5A3006DF3EA /* voxelMapTests.swift */; };
 		CFD63BCB235DC5A3006DF3EA /* voxelMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD63BCA235DC5A3006DF3EA /* voxelMapUITests.swift */; };
+		E3B139984A4C22E3381CBDA9 /* Pods_voxelMapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 756B53003FBFD9460A8C0C52 /* Pods_voxelMapTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,24 +48,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CF03E757235DEBC1001FFD4B /* VoxelMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoxelMap.swift; sourceTree = "<group>"; };
+		3C1A5E9D745E22517B38E2E4 /* Pods-voxelMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-voxelMap.release.xcconfig"; path = "Target Support Files/Pods-voxelMap/Pods-voxelMap.release.xcconfig"; sourceTree = "<group>"; };
+		3CFAD88165761EC978A7DD7C /* Pods-voxelMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-voxelMapTests.debug.xcconfig"; path = "Target Support Files/Pods-voxelMapTests/Pods-voxelMapTests.debug.xcconfig"; sourceTree = "<group>"; };
+		756B53003FBFD9460A8C0C52 /* Pods_voxelMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_voxelMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		98A0E6D67C2424F4B07F01AE /* Pods_voxelMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_voxelMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9D4F8DED237EF4A30F8EA59 /* Pods-voxelMap-voxelMapUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-voxelMap-voxelMapUITests.debug.xcconfig"; path = "Target Support Files/Pods-voxelMap-voxelMapUITests/Pods-voxelMap-voxelMapUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		AECF16EB4B726BBDDAE14205 /* Pods-voxelMap-voxelMapUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-voxelMap-voxelMapUITests.release.xcconfig"; path = "Target Support Files/Pods-voxelMap-voxelMapUITests/Pods-voxelMap-voxelMapUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B1D4A2AC154AFD93D48EE5FF /* Pods-voxelMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-voxelMapTests.release.xcconfig"; path = "Target Support Files/Pods-voxelMapTests/Pods-voxelMapTests.release.xcconfig"; sourceTree = "<group>"; };
+		C7C2307F42C1A0C16DF9E15D /* Pods_voxelMap_voxelMapUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_voxelMap_voxelMapUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF1E2C96236630F500F469DE /* Assets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Assets.scnassets; sourceTree = "<group>"; };
-		CF1E2C9E2366415400F469DE /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
-		CF1F62EA23884B2700207CB2 /* Heap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
 		CF2DF15723609D860056432D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		CF30C72A239E885000C4034B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		CF30C72D239E898100C4034B /* Mapfilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapfilters.swift; sourceTree = "<group>"; };
-		CF6B4312235E032900F85C77 /* Voxel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voxel.swift; sourceTree = "<group>"; };
 		CF6B4314235E224500F85C77 /* testVoxelMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testVoxelMap.swift; sourceTree = "<group>"; };
+		CF6DB7A623D9E102006C4E3C /* SCNVector3+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Extensions.swift"; sourceTree = "<group>"; };
+		CF6DB7A823D9E102006C4E3C /* MMSlidingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMSlidingButton.swift; sourceTree = "<group>"; };
+		CF6DB7A923D9E102006C4E3C /* SKLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKLine.swift; sourceTree = "<group>"; };
+		CF6DB7AA23D9E102006C4E3C /* SCNVector4+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SCNVector4+Extensions.swift"; sourceTree = "<group>"; };
 		CF7451CB2382E59E00B8D5B4 /* pin.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = pin.scn; sourceTree = "<group>"; };
-		CF7451CE2382E77800B8D5B4 /* SCNVector3+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Extensions.swift"; sourceTree = "<group>"; };
-		CF7451CF2382E77800B8D5B4 /* SCN+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SCN+Codable.swift"; sourceTree = "<group>"; };
-		CF7451D02382E77800B8D5B4 /* MMSlidingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMSlidingButton.swift; sourceTree = "<group>"; };
-		CF7451D12382E77800B8D5B4 /* SKLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKLine.swift; sourceTree = "<group>"; };
-		CF7451D22382E77800B8D5B4 /* SCNVector4+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SCNVector4+Extensions.swift"; sourceTree = "<group>"; };
-		CF75DDA52379C53B005E8D19 /* MapVisualisation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVisualisation.swift; sourceTree = "<group>"; };
 		CF96BD00235F3FD300D6E377 /* testVoxel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testVoxel.swift; sourceTree = "<group>"; };
-		CFA06E602379EA9E007F2F1B /* AStar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AStar.swift; sourceTree = "<group>"; };
 		CFB46309236626F00036BDD0 /* Plane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
 		CFD63BA5235DC5A1006DF3EA /* voxelMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = voxelMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFD63BA8235DC5A1006DF3EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +80,7 @@
 		CFD63BC6235DC5A3006DF3EA /* voxelMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = voxelMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFD63BCA235DC5A3006DF3EA /* voxelMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = voxelMapUITests.swift; sourceTree = "<group>"; };
 		CFD63BCC235DC5A3006DF3EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4059E40A2C9892850B4707A /* Pods-voxelMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-voxelMap.debug.xcconfig"; path = "Target Support Files/Pods-voxelMap/Pods-voxelMap.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C2765649F9666D9F7B91C26 /* Pods_voxelMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3B139984A4C22E3381CBDA9 /* Pods_voxelMapTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,39 +104,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				225AE033E357ABB79E431067 /* Pods_voxelMap_voxelMapUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CF30C72C239E88C800C4034B /* Utils */ = {
+		98036386E3984F3A427E3C1F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CF7451CE2382E77800B8D5B4 /* SCNVector3+Extensions.swift */,
-				CF7451CF2382E77800B8D5B4 /* SCN+Codable.swift */,
-				CF7451D02382E77800B8D5B4 /* MMSlidingButton.swift */,
-				CF7451D12382E77800B8D5B4 /* SKLine.swift */,
-				CF7451D22382E77800B8D5B4 /* SCNVector4+Extensions.swift */,
+				F4059E40A2C9892850B4707A /* Pods-voxelMap.debug.xcconfig */,
+				3C1A5E9D745E22517B38E2E4 /* Pods-voxelMap.release.xcconfig */,
+				A9D4F8DED237EF4A30F8EA59 /* Pods-voxelMap-voxelMapUITests.debug.xcconfig */,
+				AECF16EB4B726BBDDAE14205 /* Pods-voxelMap-voxelMapUITests.release.xcconfig */,
+				3CFAD88165761EC978A7DD7C /* Pods-voxelMapTests.debug.xcconfig */,
+				B1D4A2AC154AFD93D48EE5FF /* Pods-voxelMapTests.release.xcconfig */,
 			);
-			path = Utils;
+			path = Pods;
 			sourceTree = "<group>";
 		};
-		CFB4630B236628970036BDD0 /* VoxelMap_SDK */ = {
+		CF6DB7A523D9E102006C4E3C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				CF30C72C239E88C800C4034B /* Utils */,
-				CF1F62EA23884B2700207CB2 /* Heap.swift */,
-				CF03E757235DEBC1001FFD4B /* VoxelMap.swift */,
-				CFA06E602379EA9E007F2F1B /* AStar.swift */,
-				CF1E2C9E2366415400F469DE /* Matrix.swift */,
-				CF6B4312235E032900F85C77 /* Voxel.swift */,
-				CF75DDA52379C53B005E8D19 /* MapVisualisation.swift */,
-				CF30C72A239E885000C4034B /* Extensions.swift */,
-				CF30C72D239E898100C4034B /* Mapfilters.swift */,
+				CF6DB7A623D9E102006C4E3C /* SCNVector3+Extensions.swift */,
+				CF6DB7A823D9E102006C4E3C /* MMSlidingButton.swift */,
+				CF6DB7A923D9E102006C4E3C /* SKLine.swift */,
+				CF6DB7AA23D9E102006C4E3C /* SCNVector4+Extensions.swift */,
 			);
-			path = VoxelMap_SDK;
-			sourceTree = "<group>";
+			path = Utils;
+			sourceTree = SOURCE_ROOT;
 		};
 		CFD63B9C235DC5A1006DF3EA = {
 			isa = PBXGroup;
@@ -149,6 +142,8 @@
 				CFD63BBE235DC5A3006DF3EA /* voxelMapTests */,
 				CFD63BC9235DC5A3006DF3EA /* voxelMapUITests */,
 				CFD63BA6235DC5A1006DF3EA /* Products */,
+				98036386E3984F3A427E3C1F /* Pods */,
+				D323B0E0B75E2DB55C9D9E47 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -165,10 +160,10 @@
 		CFD63BA7235DC5A1006DF3EA /* voxelMap */ = {
 			isa = PBXGroup;
 			children = (
+				CF6DB7A523D9E102006C4E3C /* Utils */,
 				CFD63BA8235DC5A1006DF3EA /* AppDelegate.swift */,
 				CFD63BAC235DC5A1006DF3EA /* ViewController.swift */,
 				CFB46309236626F00036BDD0 /* Plane.swift */,
-				CFB4630B236628970036BDD0 /* VoxelMap_SDK */,
 				CF2DF15723609D860056432D /* MapViewController.swift */,
 				CFD63BAE235DC5A1006DF3EA /* Main.storyboard */,
 				CF1E2C96236630F500F469DE /* Assets.scnassets */,
@@ -201,6 +196,16 @@
 			path = voxelMapUITests;
 			sourceTree = "<group>";
 		};
+		D323B0E0B75E2DB55C9D9E47 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				98A0E6D67C2424F4B07F01AE /* Pods_voxelMap.framework */,
+				C7C2307F42C1A0C16DF9E15D /* Pods_voxelMap_voxelMapUITests.framework */,
+				756B53003FBFD9460A8C0C52 /* Pods_voxelMapTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -208,10 +213,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CFD63BCF235DC5A3006DF3EA /* Build configuration list for PBXNativeTarget "voxelMap" */;
 			buildPhases = (
+				1E813AE94E9D5CF788D2CA16 /* [CP] Check Pods Manifest.lock */,
 				CFD63BA1235DC5A1006DF3EA /* Sources */,
 				CFD63BA2235DC5A1006DF3EA /* Frameworks */,
 				CFD63BA3235DC5A1006DF3EA /* Resources */,
 				CF1E2C9523662AC800F469DE /* ShellScript */,
+				C67C77BE70DBC5BC82C919F4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -226,6 +233,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CFD63BD2235DC5A3006DF3EA /* Build configuration list for PBXNativeTarget "voxelMapTests" */;
 			buildPhases = (
+				C6B4D020F5CDE33327495C6A /* [CP] Check Pods Manifest.lock */,
 				CFD63BB7235DC5A3006DF3EA /* Sources */,
 				CFD63BB8235DC5A3006DF3EA /* Frameworks */,
 				CFD63BB9235DC5A3006DF3EA /* Resources */,
@@ -244,9 +252,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CFD63BD5235DC5A3006DF3EA /* Build configuration list for PBXNativeTarget "voxelMapUITests" */;
 			buildPhases = (
+				AD51E2592C8887D8FC2CDE8D /* [CP] Check Pods Manifest.lock */,
 				CFD63BC2235DC5A3006DF3EA /* Sources */,
 				CFD63BC3235DC5A3006DF3EA /* Frameworks */,
 				CFD63BC4235DC5A3006DF3EA /* Resources */,
+				6D63E2F31A26BFE16DAF0455 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -332,6 +342,106 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1E813AE94E9D5CF788D2CA16 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-voxelMap-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D63E2F31A26BFE16DAF0455 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-voxelMap-voxelMapUITests/Pods-voxelMap-voxelMapUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-voxelMap-voxelMapUITests/Pods-voxelMap-voxelMapUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-voxelMap-voxelMapUITests/Pods-voxelMap-voxelMapUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD51E2592C8887D8FC2CDE8D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-voxelMap-voxelMapUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C67C77BE70DBC5BC82C919F4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-voxelMap/Pods-voxelMap-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-voxelMap/Pods-voxelMap-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-voxelMap/Pods-voxelMap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6B4D020F5CDE33327495C6A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-voxelMapTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CF1E2C9523662AC800F469DE /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -356,23 +466,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF7451D42382E77900B8D5B4 /* SCN+Codable.swift in Sources */,
-				CF1E2C9F2366415400F469DE /* Matrix.swift in Sources */,
 				CFD63BAD235DC5A1006DF3EA /* ViewController.swift in Sources */,
+				CF6DB7AD23D9E102006C4E3C /* MMSlidingButton.swift in Sources */,
 				CFD63BA9235DC5A1006DF3EA /* AppDelegate.swift in Sources */,
-				CF7451D52382E77900B8D5B4 /* MMSlidingButton.swift in Sources */,
-				CF03E758235DEBC1001FFD4B /* VoxelMap.swift in Sources */,
-				CF1F62EB23884B2700207CB2 /* Heap.swift in Sources */,
-				CF6B4313235E032A00F85C77 /* Voxel.swift in Sources */,
-				CF75DDA62379C53B005E8D19 /* MapVisualisation.swift in Sources */,
-				CF7451D72382E77900B8D5B4 /* SCNVector4+Extensions.swift in Sources */,
 				CFB4630A236626F00036BDD0 /* Plane.swift in Sources */,
-				CF30C72B239E885000C4034B /* Extensions.swift in Sources */,
-				CF30C72E239E898100C4034B /* Mapfilters.swift in Sources */,
-				CF7451D62382E77900B8D5B4 /* SKLine.swift in Sources */,
+				CF6DB7AE23D9E102006C4E3C /* SKLine.swift in Sources */,
 				CF2DF15823609D860056432D /* MapViewController.swift in Sources */,
-				CFA06E612379EA9E007F2F1B /* AStar.swift in Sources */,
-				CF7451D32382E77900B8D5B4 /* SCNVector3+Extensions.swift in Sources */,
+				CF6DB7AB23D9E102006C4E3C /* SCNVector3+Extensions.swift in Sources */,
+				CF6DB7AF23D9E102006C4E3C /* SCNVector4+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,10 +646,11 @@
 		};
 		CFD63BD0235DC5A3006DF3EA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4059E40A2C9892850B4707A /* Pods-voxelMap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LJH7752BKA;
+				DEVELOPMENT_TEAM = 8M8S4HQM6M;
 				INFOPLIST_FILE = voxelMap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -564,10 +666,11 @@
 		};
 		CFD63BD1235DC5A3006DF3EA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C1A5E9D745E22517B38E2E4 /* Pods-voxelMap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LJH7752BKA;
+				DEVELOPMENT_TEAM = 8M8S4HQM6M;
 				INFOPLIST_FILE = voxelMap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -583,6 +686,7 @@
 		};
 		CFD63BD3235DC5A3006DF3EA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CFAD88165761EC978A7DD7C /* Pods-voxelMapTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -605,6 +709,7 @@
 		};
 		CFD63BD4235DC5A3006DF3EA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1D4A2AC154AFD93D48EE5FF /* Pods-voxelMapTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -627,6 +732,7 @@
 		};
 		CFD63BD6235DC5A3006DF3EA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9D4F8DED237EF4A30F8EA59 /* Pods-voxelMap-voxelMapUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -647,6 +753,7 @@
 		};
 		CFD63BD7235DC5A3006DF3EA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AECF16EB4B726BBDDAE14205 /* Pods-voxelMap-voxelMapUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
