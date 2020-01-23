@@ -1,0 +1,1039 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1E58573F438C350EC05A94FEF16E5464 /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93065C7A2C21D91641CACF314EE5D805 /* Heap.swift */; };
+		2220C6B74A3B70350F4EC4E786CAC7F6 /* Pods-voxelMap-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B8FB9F75B0E8493841E3D818D0BDA06A /* Pods-voxelMap-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		278D876EBC02F29797468EA5C27BB938 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AF46A5A142847F8A0E6EC4118910A8 /* Foundation.framework */; };
+		2B3906941150FCCF057FB56F1E93EA48 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AF46A5A142847F8A0E6EC4118910A8 /* Foundation.framework */; };
+		2C9200689CB99FC95CD09EE35998CB2B /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7642E34460758380A8804995E8823 /* Matrix.swift */; };
+		3CC5D085AAE624D5A849CA21584BB142 /* SCN+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22069C0C14C78CDA0F536BBAB5934186 /* SCN+Codable.swift */; };
+		3E2183C08A262959ECAF2DBF0E2C09A0 /* Pods-voxelMap-voxelMapUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1C3497A68D27EB2EAC0D5CACD0CFD6 /* Pods-voxelMap-voxelMapUITests-dummy.m */; };
+		44A9C9606E5773CBE8A97BC1992CD479 /* SKLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D045B3269D5A1019AA661EC45C8B54AF /* SKLine.swift */; };
+		49CB62AC951E868702FC28762EC1B763 /* Pods-voxelMap-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9D9F27BACB7BA855CD7B09347B8CB3 /* Pods-voxelMap-dummy.m */; };
+		584989AF588D07A1CCD2A8EAA454FE3A /* ARNavigationKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF3C856B5C56582564FFE0144ABE39 /* ARNavigationKit-dummy.m */; };
+		5DE9A9CC5F60E514CE2AE9B939C5D7EB /* Voxel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837C04A3A34F02BA6A5386E9BB1B5EA9 /* Voxel.swift */; };
+		640E3D6384DA0E8D19EAFC9AB2CB2AD6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF075B5BD0DE73C2805BD307B9645201 /* Extensions.swift */; };
+		6BB2420966CF85BF755870E3824D8A2C /* Pods-voxelMapTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 074169623629B94E60286310CB6DE40D /* Pods-voxelMapTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		744F8061EE7EEA65650868BB4E12FEB3 /* SCNVector4+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B5D149CCA0079CCE0F201445878E7C /* SCNVector4+Extensions.swift */; };
+		7C9C63C8B88E406F06314C336FD095B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AF46A5A142847F8A0E6EC4118910A8 /* Foundation.framework */; };
+		8493BC7AA5A488764BB2B9036491ECE3 /* Mapfilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A5CFB262E34E3747F3BD0969332ECE /* Mapfilters.swift */; };
+		903EA299D72A41C099BA165155DFD03E /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2368922BCEA1812FCFF5D831B86A4991 /* ARKit.framework */; };
+		B20C56E4D3CEA56294F5948CF83E5F98 /* Pods-voxelMap-voxelMapUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 89F0A6979B9FC789EB42CB64698640C5 /* Pods-voxelMap-voxelMapUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B6D811058226A84084CFFEF546B9C01C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AF46A5A142847F8A0E6EC4118910A8 /* Foundation.framework */; };
+		CB054F11824A873837CB96924049AA9E /* VoxelMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5036E46BA39A79DB51E84D0288455071 /* VoxelMap.swift */; };
+		DB616432295B51912F5EA9824F09119B /* Pods-voxelMapTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AE2244E219D0830043A4D7883B677F2 /* Pods-voxelMapTests-dummy.m */; };
+		E33D46CF27C8858AAA7C7F8EF99807FB /* ARNavigationKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DFDC457E658EF80DCA9BD941B1DCD016 /* ARNavigationKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5CE3118FA4AB4B9136FD25F3C4B4837 /* SCNVector3+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB27798F67AF061E0FC743BBA066511 /* SCNVector3+Extensions.swift */; };
+		E7296F19595F84FA3F15BC4BCF1CF0EE /* AStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7A949528D618FAE30F4CC61E9EA321 /* AStar.swift */; };
+		FF3C98697112924981FE91D737174001 /* MapVisualisation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEF7CF20E95E8332426D1CCCBFB8597 /* MapVisualisation.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		33AD30215E99C0258B9A1EAD8A34540A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE8D1DC0FE498DCA9F2B758567C2B656;
+			remoteInfo = "Pods-voxelMap";
+		};
+		A4602CA604BD0214469DD1A93B74D453 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 536BA9761A18EA4161366BE6D34BA5DA;
+			remoteInfo = ARNavigationKit;
+		};
+		FEBC7A93D25ED308EBAED6A63BC7516E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 536BA9761A18EA4161366BE6D34BA5DA;
+			remoteInfo = ARNavigationKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		02E83DE0F4E4E508FD79FD914CA3C0B4 /* ARNavigationKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = ARNavigationKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		066A87231713D9F8D509276743D92A55 /* ARNavigationKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ARNavigationKit-prefix.pch"; sourceTree = "<group>"; };
+		074169623629B94E60286310CB6DE40D /* Pods-voxelMapTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-voxelMapTests-umbrella.h"; sourceTree = "<group>"; };
+		07A7642E34460758380A8804995E8823 /* Matrix.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Matrix.swift; path = ARNavigationKit/Matrix.swift; sourceTree = "<group>"; };
+		0D0A69DCB8011FE32F47C39B97CCBD37 /* ARNavigationKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ARNavigationKit-Info.plist"; sourceTree = "<group>"; };
+		0FCED64A23414F844DDCA4E919DCA5A4 /* ARNavigationKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ARNavigationKit.xcconfig; sourceTree = "<group>"; };
+		10506C214A7FA6737FBF169F2FEF5A2F /* Pods-voxelMap-voxelMapUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-voxelMap-voxelMapUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		151B55F568332065CB815F426C60585F /* Pods-voxelMap.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-voxelMap.modulemap"; sourceTree = "<group>"; };
+		1AE2244E219D0830043A4D7883B677F2 /* Pods-voxelMapTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-voxelMapTests-dummy.m"; sourceTree = "<group>"; };
+		1E9D9F27BACB7BA855CD7B09347B8CB3 /* Pods-voxelMap-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-voxelMap-dummy.m"; sourceTree = "<group>"; };
+		22069C0C14C78CDA0F536BBAB5934186 /* SCN+Codable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "SCN+Codable.swift"; sourceTree = "<group>"; };
+		2368922BCEA1812FCFF5D831B86A4991 /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/ARKit.framework; sourceTree = DEVELOPER_DIR; };
+		24AF46A5A142847F8A0E6EC4118910A8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		3837A3758BB365F4FC71D7F598695A2E /* Pods-voxelMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-voxelMap.debug.xcconfig"; sourceTree = "<group>"; };
+		3BFF3C856B5C56582564FFE0144ABE39 /* ARNavigationKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ARNavigationKit-dummy.m"; sourceTree = "<group>"; };
+		4A364D51A3DAB0B5A82A1683D7FCCA07 /* ARNavigationKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ARNavigationKit.modulemap; sourceTree = "<group>"; };
+		5036E46BA39A79DB51E84D0288455071 /* VoxelMap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VoxelMap.swift; path = ARNavigationKit/VoxelMap.swift; sourceTree = "<group>"; };
+		5177FD3EF3073DC56684FBF556F0317E /* Pods-voxelMap-voxelMapUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-voxelMap-voxelMapUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5BB27798F67AF061E0FC743BBA066511 /* SCNVector3+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Extensions.swift"; sourceTree = "<group>"; };
+		5EE6D197D1045CF7BA8C563706AFD562 /* Pods-voxelMap-voxelMapUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-voxelMap-voxelMapUITests.modulemap"; sourceTree = "<group>"; };
+		62EEBD5D461846EEE758CEACB99C247B /* Pods-voxelMap-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-voxelMap-frameworks.sh"; sourceTree = "<group>"; };
+		68C24F6A2F03D06E474BAA97664A6748 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		6E679CDFA80892D6B82331E322C76BBD /* Pods-voxelMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-voxelMapTests.release.xcconfig"; sourceTree = "<group>"; };
+		77A83B47627F0956905B532F5016725D /* Pods-voxelMapTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-voxelMapTests-Info.plist"; sourceTree = "<group>"; };
+		78000FD1519AABE01282AD184792D5E8 /* Pods_voxelMapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_voxelMapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AEF7CF20E95E8332426D1CCCBFB8597 /* MapVisualisation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MapVisualisation.swift; path = ARNavigationKit/MapVisualisation.swift; sourceTree = "<group>"; };
+		7FA90A8CAC504AC5E81429B2A36EA5F7 /* Pods-voxelMap-voxelMapUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-voxelMap-voxelMapUITests-Info.plist"; sourceTree = "<group>"; };
+		837C04A3A34F02BA6A5386E9BB1B5EA9 /* Voxel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Voxel.swift; path = ARNavigationKit/Voxel.swift; sourceTree = "<group>"; };
+		85A5CFB262E34E3747F3BD0969332ECE /* Mapfilters.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Mapfilters.swift; path = ARNavigationKit/Mapfilters.swift; sourceTree = "<group>"; };
+		8869E14F56E468247681EA78F442F56C /* Pods-voxelMapTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-voxelMapTests.modulemap"; sourceTree = "<group>"; };
+		89F0A6979B9FC789EB42CB64698640C5 /* Pods-voxelMap-voxelMapUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-voxelMap-voxelMapUITests-umbrella.h"; sourceTree = "<group>"; };
+		93065C7A2C21D91641CACF314EE5D805 /* Heap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Heap.swift; path = ARNavigationKit/Heap.swift; sourceTree = "<group>"; };
+		963C0CE657F0F54B13FE517081D3893E /* Pods_voxelMap_voxelMapUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_voxelMap_voxelMapUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A051BC343957BA3C770063135732982 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9ED81DCDDDE5D4036910B4E1B037A8E2 /* Pods_voxelMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_voxelMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0306CE2E86C23E7B0420BF969514DA8 /* Pods-voxelMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-voxelMap.release.xcconfig"; sourceTree = "<group>"; };
+		A2EFC3DA7C5DBEF38C1B8259E4D21B2F /* Pods-voxelMap-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-voxelMap-acknowledgements.markdown"; sourceTree = "<group>"; };
+		A6DBB255CB158EDD5113A0599989226C /* Pods-voxelMapTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-voxelMapTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		A79613E3CEB314847FC35C17A391B8E3 /* Pods-voxelMap-voxelMapUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-voxelMap-voxelMapUITests-frameworks.sh"; sourceTree = "<group>"; };
+		B3328CEFCFE56D01AD24B079E51B75E8 /* Pods-voxelMap-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-voxelMap-acknowledgements.plist"; sourceTree = "<group>"; };
+		B5B5D149CCA0079CCE0F201445878E7C /* SCNVector4+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "SCNVector4+Extensions.swift"; sourceTree = "<group>"; };
+		B8FB9F75B0E8493841E3D818D0BDA06A /* Pods-voxelMap-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-voxelMap-umbrella.h"; sourceTree = "<group>"; };
+		BC1C3497A68D27EB2EAC0D5CACD0CFD6 /* Pods-voxelMap-voxelMapUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-voxelMap-voxelMapUITests-dummy.m"; sourceTree = "<group>"; };
+		D045B3269D5A1019AA661EC45C8B54AF /* SKLine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SKLine.swift; sourceTree = "<group>"; };
+		DF075B5BD0DE73C2805BD307B9645201 /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ARNavigationKit/Extensions.swift; sourceTree = "<group>"; };
+		DFDC457E658EF80DCA9BD941B1DCD016 /* ARNavigationKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ARNavigationKit-umbrella.h"; sourceTree = "<group>"; };
+		E130495F2C945090F6B0DA815AD5DA0C /* Pods-voxelMapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-voxelMapTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E1DDE9AEA9EA91533D4F9C5E62C20AB0 /* ARNavigationKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARNavigationKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E31379DB9D832B0451ACECB49A8E58D5 /* Pods-voxelMapTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-voxelMapTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		E9F24A71DCF6F65D2BA8EA6076FC459C /* Pods-voxelMap-voxelMapUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-voxelMap-voxelMapUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EC7A949528D618FAE30F4CC61E9EA321 /* AStar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AStar.swift; path = ARNavigationKit/AStar.swift; sourceTree = "<group>"; };
+		F8B9EF881D19D91E047AC1FD5FB8D9F6 /* Pods-voxelMap-voxelMapUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-voxelMap-voxelMapUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		FCB6DE8683230E7006AE856915942F9C /* Pods-voxelMap-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-voxelMap-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		03DBA97F960EF24F304C6089904653E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				278D876EBC02F29797468EA5C27BB938 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74CE18C190D1B4C3C0C42BE4090DB7D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B3906941150FCCF057FB56F1E93EA48 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79E9C51651903ACD83C32E56E746C371 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6D811058226A84084CFFEF546B9C01C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		853ABF0D93729BE3C7C9F2FBC5EF8EE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				903EA299D72A41C099BA165155DFD03E /* ARKit.framework in Frameworks */,
+				7C9C63C8B88E406F06314C336FD095B4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				33A0879A566E0D4B44C8188FA258DBB4 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		33A0879A566E0D4B44C8188FA258DBB4 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				2368922BCEA1812FCFF5D831B86A4991 /* ARKit.framework */,
+				24AF46A5A142847F8A0E6EC4118910A8 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		34FCD8564943A766590CE8EF72CE6212 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4A364D51A3DAB0B5A82A1683D7FCCA07 /* ARNavigationKit.modulemap */,
+				0FCED64A23414F844DDCA4E919DCA5A4 /* ARNavigationKit.xcconfig */,
+				3BFF3C856B5C56582564FFE0144ABE39 /* ARNavigationKit-dummy.m */,
+				0D0A69DCB8011FE32F47C39B97CCBD37 /* ARNavigationKit-Info.plist */,
+				066A87231713D9F8D509276743D92A55 /* ARNavigationKit-prefix.pch */,
+				DFDC457E658EF80DCA9BD941B1DCD016 /* ARNavigationKit-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../../../Local document/macOS Apps/voxelMap/Pods/Target Support Files/ARNavigationKit";
+			sourceTree = "<group>";
+		};
+		3F8FBEAC1397F316C377F1877276DBCD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				22069C0C14C78CDA0F536BBAB5934186 /* SCN+Codable.swift */,
+				5BB27798F67AF061E0FC743BBA066511 /* SCNVector3+Extensions.swift */,
+				B5B5D149CCA0079CCE0F201445878E7C /* SCNVector4+Extensions.swift */,
+				D045B3269D5A1019AA661EC45C8B54AF /* SKLine.swift */,
+			);
+			name = Utils;
+			path = ARNavigationKit/Utils;
+			sourceTree = "<group>";
+		};
+		67EE8224E072A3BB4456DDBB055A3526 /* Pods-voxelMapTests */ = {
+			isa = PBXGroup;
+			children = (
+				8869E14F56E468247681EA78F442F56C /* Pods-voxelMapTests.modulemap */,
+				E31379DB9D832B0451ACECB49A8E58D5 /* Pods-voxelMapTests-acknowledgements.markdown */,
+				A6DBB255CB158EDD5113A0599989226C /* Pods-voxelMapTests-acknowledgements.plist */,
+				1AE2244E219D0830043A4D7883B677F2 /* Pods-voxelMapTests-dummy.m */,
+				77A83B47627F0956905B532F5016725D /* Pods-voxelMapTests-Info.plist */,
+				074169623629B94E60286310CB6DE40D /* Pods-voxelMapTests-umbrella.h */,
+				E130495F2C945090F6B0DA815AD5DA0C /* Pods-voxelMapTests.debug.xcconfig */,
+				6E679CDFA80892D6B82331E322C76BBD /* Pods-voxelMapTests.release.xcconfig */,
+			);
+			name = "Pods-voxelMapTests";
+			path = "Target Support Files/Pods-voxelMapTests";
+			sourceTree = "<group>";
+		};
+		8C79E59EDED8C5CA8C85688EA105EDD0 /* ARNavigationKit */ = {
+			isa = PBXGroup;
+			children = (
+				EC7A949528D618FAE30F4CC61E9EA321 /* AStar.swift */,
+				DF075B5BD0DE73C2805BD307B9645201 /* Extensions.swift */,
+				93065C7A2C21D91641CACF314EE5D805 /* Heap.swift */,
+				85A5CFB262E34E3747F3BD0969332ECE /* Mapfilters.swift */,
+				7AEF7CF20E95E8332426D1CCCBFB8597 /* MapVisualisation.swift */,
+				07A7642E34460758380A8804995E8823 /* Matrix.swift */,
+				837C04A3A34F02BA6A5386E9BB1B5EA9 /* Voxel.swift */,
+				5036E46BA39A79DB51E84D0288455071 /* VoxelMap.swift */,
+				B3FD3548FFAB633D63AA5235DADC47F2 /* Pod */,
+				34FCD8564943A766590CE8EF72CE6212 /* Support Files */,
+				3F8FBEAC1397F316C377F1877276DBCD /* Utils */,
+			);
+			name = ARNavigationKit;
+			path = /Users/ferdinandlosch/Documents/Libraries/ARNavigationKit;
+			sourceTree = "<absolute>";
+		};
+		97A233D9FAFE275F6BC2A0A8DAAA6AA5 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				DE6B337404E225FF1EDC8F6F1A51B393 /* Pods-voxelMap */,
+				E0BC17BFCAE97D46116B6169FD67D349 /* Pods-voxelMap-voxelMapUITests */,
+				67EE8224E072A3BB4456DDBB055A3526 /* Pods-voxelMapTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		B3FD3548FFAB633D63AA5235DADC47F2 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				02E83DE0F4E4E508FD79FD914CA3C0B4 /* ARNavigationKit.podspec */,
+				68C24F6A2F03D06E474BAA97664A6748 /* LICENSE */,
+				9A051BC343957BA3C770063135732982 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		CA6DE7DB09EE7B7F6D12738A29C9C12F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E1DDE9AEA9EA91533D4F9C5E62C20AB0 /* ARNavigationKit.framework */,
+				9ED81DCDDDE5D4036910B4E1B037A8E2 /* Pods_voxelMap.framework */,
+				963C0CE657F0F54B13FE517081D3893E /* Pods_voxelMap_voxelMapUITests.framework */,
+				78000FD1519AABE01282AD184792D5E8 /* Pods_voxelMapTests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				E0B657AA97522CE2F90152DE437E84BE /* Development Pods */,
+				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
+				CA6DE7DB09EE7B7F6D12738A29C9C12F /* Products */,
+				97A233D9FAFE275F6BC2A0A8DAAA6AA5 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		DE6B337404E225FF1EDC8F6F1A51B393 /* Pods-voxelMap */ = {
+			isa = PBXGroup;
+			children = (
+				151B55F568332065CB815F426C60585F /* Pods-voxelMap.modulemap */,
+				A2EFC3DA7C5DBEF38C1B8259E4D21B2F /* Pods-voxelMap-acknowledgements.markdown */,
+				B3328CEFCFE56D01AD24B079E51B75E8 /* Pods-voxelMap-acknowledgements.plist */,
+				1E9D9F27BACB7BA855CD7B09347B8CB3 /* Pods-voxelMap-dummy.m */,
+				62EEBD5D461846EEE758CEACB99C247B /* Pods-voxelMap-frameworks.sh */,
+				FCB6DE8683230E7006AE856915942F9C /* Pods-voxelMap-Info.plist */,
+				B8FB9F75B0E8493841E3D818D0BDA06A /* Pods-voxelMap-umbrella.h */,
+				3837A3758BB365F4FC71D7F598695A2E /* Pods-voxelMap.debug.xcconfig */,
+				A0306CE2E86C23E7B0420BF969514DA8 /* Pods-voxelMap.release.xcconfig */,
+			);
+			name = "Pods-voxelMap";
+			path = "Target Support Files/Pods-voxelMap";
+			sourceTree = "<group>";
+		};
+		E0B657AA97522CE2F90152DE437E84BE /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8C79E59EDED8C5CA8C85688EA105EDD0 /* ARNavigationKit */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		E0BC17BFCAE97D46116B6169FD67D349 /* Pods-voxelMap-voxelMapUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5EE6D197D1045CF7BA8C563706AFD562 /* Pods-voxelMap-voxelMapUITests.modulemap */,
+				F8B9EF881D19D91E047AC1FD5FB8D9F6 /* Pods-voxelMap-voxelMapUITests-acknowledgements.markdown */,
+				10506C214A7FA6737FBF169F2FEF5A2F /* Pods-voxelMap-voxelMapUITests-acknowledgements.plist */,
+				BC1C3497A68D27EB2EAC0D5CACD0CFD6 /* Pods-voxelMap-voxelMapUITests-dummy.m */,
+				A79613E3CEB314847FC35C17A391B8E3 /* Pods-voxelMap-voxelMapUITests-frameworks.sh */,
+				7FA90A8CAC504AC5E81429B2A36EA5F7 /* Pods-voxelMap-voxelMapUITests-Info.plist */,
+				89F0A6979B9FC789EB42CB64698640C5 /* Pods-voxelMap-voxelMapUITests-umbrella.h */,
+				5177FD3EF3073DC56684FBF556F0317E /* Pods-voxelMap-voxelMapUITests.debug.xcconfig */,
+				E9F24A71DCF6F65D2BA8EA6076FC459C /* Pods-voxelMap-voxelMapUITests.release.xcconfig */,
+			);
+			name = "Pods-voxelMap-voxelMapUITests";
+			path = "Target Support Files/Pods-voxelMap-voxelMapUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A7823B6DC1E8224C92C81F25D0F0928F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B20C56E4D3CEA56294F5948CF83E5F98 /* Pods-voxelMap-voxelMapUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C007718EE366A047D33E939F96ACF67A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BB2420966CF85BF755870E3824D8A2C /* Pods-voxelMapTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D547554E3E135BA89C58BAF62BCC0FDD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E33D46CF27C8858AAA7C7F8EF99807FB /* ARNavigationKit-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB7BA57D59619A26EBB02F031490B592 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2220C6B74A3B70350F4EC4E786CAC7F6 /* Pods-voxelMap-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		536BA9761A18EA4161366BE6D34BA5DA /* ARNavigationKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 233A2D7F12A66C3785BBA9000675EEAD /* Build configuration list for PBXNativeTarget "ARNavigationKit" */;
+			buildPhases = (
+				D547554E3E135BA89C58BAF62BCC0FDD /* Headers */,
+				1BA28DEC93C32CA5BA0557F90A6659EA /* Sources */,
+				853ABF0D93729BE3C7C9F2FBC5EF8EE1 /* Frameworks */,
+				2E012669F1E886AA0C05028239A2FE7B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ARNavigationKit;
+			productName = ARNavigationKit;
+			productReference = E1DDE9AEA9EA91533D4F9C5E62C20AB0 /* ARNavigationKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		99CCEBB18D9009DA2761043F33B0E6A6 /* Pods-voxelMapTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5AFBC64A01488633A0CCA9F147C0215 /* Build configuration list for PBXNativeTarget "Pods-voxelMapTests" */;
+			buildPhases = (
+				C007718EE366A047D33E939F96ACF67A /* Headers */,
+				8223C43EE0F4F6393E83F7DCBB708CC7 /* Sources */,
+				03DBA97F960EF24F304C6089904653E8 /* Frameworks */,
+				DFD7BB2ECB38BBD086D4CBE3970F2D3B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0CACADD57774601678192AF844665E3F /* PBXTargetDependency */,
+			);
+			name = "Pods-voxelMapTests";
+			productName = "Pods-voxelMapTests";
+			productReference = 78000FD1519AABE01282AD184792D5E8 /* Pods_voxelMapTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A9258A3223804BB2177A7CEB8642A438 /* Pods-voxelMap-voxelMapUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F4EA7253DEABEE95DE56B4F5F34C88B /* Build configuration list for PBXNativeTarget "Pods-voxelMap-voxelMapUITests" */;
+			buildPhases = (
+				A7823B6DC1E8224C92C81F25D0F0928F /* Headers */,
+				3E61E178E33B8EA71C565E4CCEA5A29A /* Sources */,
+				79E9C51651903ACD83C32E56E746C371 /* Frameworks */,
+				CC7A2836366F8EAC379D9BE4C41B4C3F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D0F3E78CFCC761489146B0D71A706EE2 /* PBXTargetDependency */,
+			);
+			name = "Pods-voxelMap-voxelMapUITests";
+			productName = "Pods-voxelMap-voxelMapUITests";
+			productReference = 963C0CE657F0F54B13FE517081D3893E /* Pods_voxelMap_voxelMapUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BE8D1DC0FE498DCA9F2B758567C2B656 /* Pods-voxelMap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5172C839CB8219AA928264BF7EDE0D98 /* Build configuration list for PBXNativeTarget "Pods-voxelMap" */;
+			buildPhases = (
+				EB7BA57D59619A26EBB02F031490B592 /* Headers */,
+				ABD3B8BFBC7DFD348B5DBAB4E9BED81A /* Sources */,
+				74CE18C190D1B4C3C0C42BE4090DB7D4 /* Frameworks */,
+				7B51F2D2FDF7FA395264F37B91DC0D64 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B1080E1C9BDD93C448402579C095E0D1 /* PBXTargetDependency */,
+			);
+			name = "Pods-voxelMap";
+			productName = "Pods-voxelMap";
+			productReference = 9ED81DCDDDE5D4036910B4E1B037A8E2 /* Pods_voxelMap.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = CA6DE7DB09EE7B7F6D12738A29C9C12F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				536BA9761A18EA4161366BE6D34BA5DA /* ARNavigationKit */,
+				BE8D1DC0FE498DCA9F2B758567C2B656 /* Pods-voxelMap */,
+				A9258A3223804BB2177A7CEB8642A438 /* Pods-voxelMap-voxelMapUITests */,
+				99CCEBB18D9009DA2761043F33B0E6A6 /* Pods-voxelMapTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2E012669F1E886AA0C05028239A2FE7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B51F2D2FDF7FA395264F37B91DC0D64 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC7A2836366F8EAC379D9BE4C41B4C3F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFD7BB2ECB38BBD086D4CBE3970F2D3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1BA28DEC93C32CA5BA0557F90A6659EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				584989AF588D07A1CCD2A8EAA454FE3A /* ARNavigationKit-dummy.m in Sources */,
+				E7296F19595F84FA3F15BC4BCF1CF0EE /* AStar.swift in Sources */,
+				640E3D6384DA0E8D19EAFC9AB2CB2AD6 /* Extensions.swift in Sources */,
+				1E58573F438C350EC05A94FEF16E5464 /* Heap.swift in Sources */,
+				8493BC7AA5A488764BB2B9036491ECE3 /* Mapfilters.swift in Sources */,
+				FF3C98697112924981FE91D737174001 /* MapVisualisation.swift in Sources */,
+				2C9200689CB99FC95CD09EE35998CB2B /* Matrix.swift in Sources */,
+				3CC5D085AAE624D5A849CA21584BB142 /* SCN+Codable.swift in Sources */,
+				E5CE3118FA4AB4B9136FD25F3C4B4837 /* SCNVector3+Extensions.swift in Sources */,
+				744F8061EE7EEA65650868BB4E12FEB3 /* SCNVector4+Extensions.swift in Sources */,
+				44A9C9606E5773CBE8A97BC1992CD479 /* SKLine.swift in Sources */,
+				5DE9A9CC5F60E514CE2AE9B939C5D7EB /* Voxel.swift in Sources */,
+				CB054F11824A873837CB96924049AA9E /* VoxelMap.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E61E178E33B8EA71C565E4CCEA5A29A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E2183C08A262959ECAF2DBF0E2C09A0 /* Pods-voxelMap-voxelMapUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8223C43EE0F4F6393E83F7DCBB708CC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB616432295B51912F5EA9824F09119B /* Pods-voxelMapTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABD3B8BFBC7DFD348B5DBAB4E9BED81A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49CB62AC951E868702FC28762EC1B763 /* Pods-voxelMap-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0CACADD57774601678192AF844665E3F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-voxelMap";
+			target = BE8D1DC0FE498DCA9F2B758567C2B656 /* Pods-voxelMap */;
+			targetProxy = 33AD30215E99C0258B9A1EAD8A34540A /* PBXContainerItemProxy */;
+		};
+		B1080E1C9BDD93C448402579C095E0D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ARNavigationKit;
+			target = 536BA9761A18EA4161366BE6D34BA5DA /* ARNavigationKit */;
+			targetProxy = A4602CA604BD0214469DD1A93B74D453 /* PBXContainerItemProxy */;
+		};
+		D0F3E78CFCC761489146B0D71A706EE2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ARNavigationKit;
+			target = 536BA9761A18EA4161366BE6D34BA5DA /* ARNavigationKit */;
+			targetProxy = FEBC7A93D25ED308EBAED6A63BC7516E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		00788304914F78E8D004480868FEA5F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0306CE2E86C23E7B0420BF969514DA8 /* Pods-voxelMap.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-voxelMap/Pods-voxelMap-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-voxelMap/Pods-voxelMap.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1422B121EAEAEA11307496903FA623C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		3354B93B3A5F2A2CE38D5FFBED506DBD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5177FD3EF3073DC56684FBF556F0317E /* Pods-voxelMap-voxelMapUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-voxelMap-voxelMapUITests/Pods-voxelMap-voxelMapUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-voxelMap-voxelMapUITests/Pods-voxelMap-voxelMapUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		65FB524059664C764B49D749AE753179 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E130495F2C945090F6B0DA815AD5DA0C /* Pods-voxelMapTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-voxelMapTests/Pods-voxelMapTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-voxelMapTests/Pods-voxelMapTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7F534960DC987A50111D351A5AB5B459 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FCED64A23414F844DDCA4E919DCA5A4 /* ARNavigationKit.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ARNavigationKit/ARNavigationKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ARNavigationKit/ARNavigationKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/ARNavigationKit/ARNavigationKit.modulemap";
+				PRODUCT_MODULE_NAME = ARNavigationKit;
+				PRODUCT_NAME = ARNavigationKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8B622DC7463ADD93CC56A5FED67803F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FCED64A23414F844DDCA4E919DCA5A4 /* ARNavigationKit.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ARNavigationKit/ARNavigationKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ARNavigationKit/ARNavigationKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/ARNavigationKit/ARNavigationKit.modulemap";
+				PRODUCT_MODULE_NAME = ARNavigationKit;
+				PRODUCT_NAME = ARNavigationKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9407BE5CAB861A19533BC3D38726FEDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3837A3758BB365F4FC71D7F598695A2E /* Pods-voxelMap.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-voxelMap/Pods-voxelMap-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-voxelMap/Pods-voxelMap.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9EA1211CACA576345CD7D0F255640B41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E679CDFA80892D6B82331E322C76BBD /* Pods-voxelMapTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-voxelMapTests/Pods-voxelMapTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-voxelMapTests/Pods-voxelMapTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BD1F00B6052D8056274297768B49E0E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9F24A71DCF6F65D2BA8EA6076FC459C /* Pods-voxelMap-voxelMapUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-voxelMap-voxelMapUITests/Pods-voxelMap-voxelMapUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-voxelMap-voxelMapUITests/Pods-voxelMap-voxelMapUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		ED7888FA6713EABBF66D26A8003AD1CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		233A2D7F12A66C3785BBA9000675EEAD /* Build configuration list for PBXNativeTarget "ARNavigationKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F534960DC987A50111D351A5AB5B459 /* Debug */,
+				8B622DC7463ADD93CC56A5FED67803F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED7888FA6713EABBF66D26A8003AD1CA /* Debug */,
+				1422B121EAEAEA11307496903FA623C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F4EA7253DEABEE95DE56B4F5F34C88B /* Build configuration list for PBXNativeTarget "Pods-voxelMap-voxelMapUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3354B93B3A5F2A2CE38D5FFBED506DBD /* Debug */,
+				BD1F00B6052D8056274297768B49E0E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5172C839CB8219AA928264BF7EDE0D98 /* Build configuration list for PBXNativeTarget "Pods-voxelMap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9407BE5CAB861A19533BC3D38726FEDE /* Debug */,
+				00788304914F78E8D004480868FEA5F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5AFBC64A01488633A0CCA9F147C0215 /* Build configuration list for PBXNativeTarget "Pods-voxelMapTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65FB524059664C764B49D749AE753179 /* Debug */,
+				9EA1211CACA576345CD7D0F255640B41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

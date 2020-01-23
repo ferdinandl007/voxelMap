@@ -1,0 +1,16 @@
+PODS:
+  - ARNavigationKit (0.1.0)
+
+DEPENDENCIES:
+  - ARNavigationKit (from `/Users/ferdinandlosch/Documents/Libraries/ARNavigationKit`)
+
+EXTERNAL SOURCES:
+  ARNavigationKit:
+    :path: "/Users/ferdinandlosch/Documents/Libraries/ARNavigationKit"
+
+SPEC CHECKSUMS:
+  ARNavigationKit: 8e8d410dfe0603fc964740ee91c259705cc24498
+
+PODFILE CHECKSUM: 08cac04d39acf4d96044e7440d3b1f0cea34793f
+
+COCOAPODS: 1.8.4
