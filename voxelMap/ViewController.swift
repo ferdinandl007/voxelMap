@@ -17,7 +17,7 @@ class ViewController: UIViewController {
 
     let augmentedRealitySession = ARSession()
 
-    let voxelMap = ARNavigationKit(VoxelGridCellSize: 0.1)
+    let voxelMap = ARNavigationKit(VoxelGridCellSize: 0.01)
 
     var end = SCNVector3()
 
@@ -38,6 +38,7 @@ class ViewController: UIViewController {
         view.addGestureRecognizer(tapRecognizer)
         setupARSession()
         voxelMap.arNavigationKitDelegate = self
+        voxelMap.filter = .none
         spinner.isHidden = true
     }
 
@@ -127,6 +128,12 @@ class ViewController: UIViewController {
         augmentedRealityView.delegate = self
 
         augmentedRealitySession.run(configuration)
+
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
+            guard let currentFrame = self.augmentedRealitySession.currentFrame,
+                let featurePointsArray = currentFrame.rawFeaturePoints?.points else { return }
+            self.voxelMap.addVoxels(featurePointsArray)
+        }
     }
 
     @IBAction func makePath(_: Any) {
@@ -139,7 +146,9 @@ class ViewController: UIViewController {
 
     @IBAction func makeVoxels(_: Any) {
 //        voxelMap.getVoxelMap().forEach { self.augmentedRealityView.scene.rootNode.addChildNode($0) }
-
+//        voxelMap.getVoxelMap(redrawAll: true) { v in
+//
+//        }
         let transform = augmentedRealityView.pointOfView!.transform
         let cam = SCNVector3(transform.m41, transform.m42, transform.m43)
         voxelMap.getObstacleGraphAndPathDebug(start: cam, end: end)
@@ -150,12 +159,13 @@ class ViewController: UIViewController {
     @IBAction func goToMap(_: Any) {
         voxelMap.getVoxelMap(redrawAll: true) { v in
             v.forEach { self.voxleRootNode.addChildNode($0) }
-        }
-
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        if let viewController = mainStoryboard.instantiateViewController(withIdentifier: "Map") as? MapViewController {
-            viewController.node = voxleRootNode.clone()
-            present(viewController, animated: true, completion: nil)
+            DispatchQueue.main.async {
+                let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                if let viewController = mainStoryboard.instantiateViewController(withIdentifier: "Map") as? MapViewController {
+                    viewController.node = self.voxleRootNode.clone()
+                    self.present(viewController, animated: true, completion: nil)
+                }
+            }
         }
     }
 }
@@ -163,9 +173,9 @@ class ViewController: UIViewController {
 extension ViewController: ARSCNViewDelegate {
     func renderer(_: SCNSceneRenderer, updateAtTime _: TimeInterval) {
         // 1. Check Our Frame Is Valid & That We Have Received Our Raw Feature Points
-        guard let currentFrame = self.augmentedRealitySession.currentFrame,
-            let featurePointsArray = currentFrame.rawFeaturePoints?.points else { return }
-        voxelMap.addVoxels(featurePointsArray)
+//        guard let currentFrame = self.augmentedRealitySession.currentFrame,
+//            let featurePointsArray = currentFrame.rawFeaturePoints?.points else { return }
+//        voxelMap.addVoxels(featurePointsArray)
     }
 
     func renderer(_: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
