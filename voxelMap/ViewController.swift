@@ -17,7 +17,7 @@ class ViewController: UIViewController {
 
     let augmentedRealitySession = ARSession()
 
-    let voxelMap = ARNavigationKit(VoxelGridCellSize: 0.01)
+    let voxelMap = ARNavigationKit(VoxelGridCellSize: 0.1)
 
     var end = SCNVector3()
 
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         view.addGestureRecognizer(tapRecognizer)
         setupARSession()
         voxelMap.arNavigationKitDelegate = self
-        voxelMap.filter = .none
+        voxelMap.filter = .removeSingle
         spinner.isHidden = true
     }
 
@@ -157,7 +157,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func goToMap(_: Any) {
-        voxelMap.getVoxelMap(redrawAll: true) { v in
+        voxelMap.getVoxelMap(redrawAll: true, onlyObstacles: true) { v in
             v.forEach { self.voxleRootNode.addChildNode($0) }
             DispatchQueue.main.async {
                 let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
