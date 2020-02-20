@@ -17,7 +17,7 @@ class ViewController: UIViewController {
 
     let augmentedRealitySession = ARSession()
 
-    let voxelMap = ARNavigationKit(VoxelGridCellSize: 0.1)
+    let voxelMap = ARNavigationKit(VoxelGridCellSize: 0.07)
 
     var end = SCNVector3()
 

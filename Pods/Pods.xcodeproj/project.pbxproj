@@ -11,7 +11,6 @@
 		2220C6B74A3B70350F4EC4E786CAC7F6 /* Pods-voxelMap-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B8FB9F75B0E8493841E3D818D0BDA06A /* Pods-voxelMap-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		278D876EBC02F29797468EA5C27BB938 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AF46A5A142847F8A0E6EC4118910A8 /* Foundation.framework */; };
 		2B3906941150FCCF057FB56F1E93EA48 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AF46A5A142847F8A0E6EC4118910A8 /* Foundation.framework */; };
-		2C9200689CB99FC95CD09EE35998CB2B /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A7642E34460758380A8804995E8823 /* Matrix.swift */; };
 		3CC5D085AAE624D5A849CA21584BB142 /* SCN+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22069C0C14C78CDA0F536BBAB5934186 /* SCN+Codable.swift */; };
 		3E2183C08A262959ECAF2DBF0E2C09A0 /* Pods-voxelMap-voxelMapUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1C3497A68D27EB2EAC0D5CACD0CFD6 /* Pods-voxelMap-voxelMapUITests-dummy.m */; };
 		44A9C9606E5773CBE8A97BC1992CD479 /* SKLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D045B3269D5A1019AA661EC45C8B54AF /* SKLine.swift */; };
@@ -62,7 +61,6 @@
 		02E83DE0F4E4E508FD79FD914CA3C0B4 /* ARNavigationKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = ARNavigationKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		066A87231713D9F8D509276743D92A55 /* ARNavigationKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ARNavigationKit-prefix.pch"; sourceTree = "<group>"; };
 		074169623629B94E60286310CB6DE40D /* Pods-voxelMapTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-voxelMapTests-umbrella.h"; sourceTree = "<group>"; };
-		07A7642E34460758380A8804995E8823 /* Matrix.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Matrix.swift; path = ARNavigationKit/Matrix.swift; sourceTree = "<group>"; };
 		0D0A69DCB8011FE32F47C39B97CCBD37 /* ARNavigationKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ARNavigationKit-Info.plist"; sourceTree = "<group>"; };
 		0FCED64A23414F844DDCA4E919DCA5A4 /* ARNavigationKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ARNavigationKit.xcconfig; sourceTree = "<group>"; };
 		10506C214A7FA6737FBF169F2FEF5A2F /* Pods-voxelMap-voxelMapUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-voxelMap-voxelMapUITests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -219,7 +217,6 @@
 				93065C7A2C21D91641CACF314EE5D805 /* Heap.swift */,
 				85A5CFB262E34E3747F3BD0969332ECE /* Mapfilters.swift */,
 				7AEF7CF20E95E8332426D1CCCBFB8597 /* MapVisualisation.swift */,
-				07A7642E34460758380A8804995E8823 /* Matrix.swift */,
 				837C04A3A34F02BA6A5386E9BB1B5EA9 /* Voxel.swift */,
 				5036E46BA39A79DB51E84D0288455071 /* VoxelMap.swift */,
 				B3FD3548FFAB633D63AA5235DADC47F2 /* Pod */,
@@ -499,7 +496,6 @@
 				1E58573F438C350EC05A94FEF16E5464 /* Heap.swift in Sources */,
 				8493BC7AA5A488764BB2B9036491ECE3 /* Mapfilters.swift in Sources */,
 				FF3C98697112924981FE91D737174001 /* MapVisualisation.swift in Sources */,
-				2C9200689CB99FC95CD09EE35998CB2B /* Matrix.swift in Sources */,
 				3CC5D085AAE624D5A849CA21584BB142 /* SCN+Codable.swift in Sources */,
 				E5CE3118FA4AB4B9136FD25F3C4B4837 /* SCNVector3+Extensions.swift in Sources */,
 				744F8061EE7EEA65650868BB4E12FEB3 /* SCNVector4+Extensions.swift in Sources */,
