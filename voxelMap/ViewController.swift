@@ -145,10 +145,8 @@ class ViewController: UIViewController {
     }
 
     @IBAction func makeVoxels(_: Any) {
-//        voxelMap.getVoxelMap().forEach { self.augmentedRealityView.scene.rootNode.addChildNode($0) }
-//        voxelMap.getVoxelMap(redrawAll: true) { v in
-//
-//        }
+        augmentedRealityView.scene.rootNode.childNodes.forEach { $0.removeFromParentNode() }
+        voxelMap.getVoxelMap(redrawAll: true, onlyObstacles: true, completion: { $0.forEach { self.augmentedRealityView.scene.rootNode.addChildNode($0) } })
         let transform = augmentedRealityView.pointOfView!.transform
         let cam = SCNVector3(transform.m41, transform.m42, transform.m43)
         voxelMap.getObstacleGraphAndPathDebug(start: cam, end: end)
@@ -157,7 +155,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func goToMap(_: Any) {
-        voxelMap.getVoxelMap(redrawAll: true, onlyObstacles: true) { v in
+        voxelMap.getVoxelMap(redrawAll: true, onlyObstacles: false) { v in
             v.forEach { self.voxleRootNode.addChildNode($0) }
             DispatchQueue.main.async {
                 let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -171,13 +169,6 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: ARSCNViewDelegate {
-    func renderer(_: SCNSceneRenderer, updateAtTime _: TimeInterval) {
-        // 1. Check Our Frame Is Valid & That We Have Received Our Raw Feature Points
-//        guard let currentFrame = self.augmentedRealitySession.currentFrame,
-//            let featurePointsArray = currentFrame.rawFeaturePoints?.points else { return }
-//        voxelMap.addVoxels(featurePointsArray)
-    }
-
     func renderer(_: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         // Place content only for anchors found by plane detection.
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
@@ -220,7 +211,7 @@ extension ViewController: ARNavigationKitDelegate {
             }
         }
         let box = SCNBox(width: CGFloat(0.05), height: CGFloat(0.05), length: CGFloat(0.05), chamferRadius: 0.1)
-        box.firstMaterial?.diffuse.contents = UIColor.red
+        box.firstMaterial?.diffuse.contents = UIColor.purple
         let node = SCNNode(geometry: box)
         node.name = "path"
 
